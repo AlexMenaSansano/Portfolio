@@ -1,0 +1,112 @@
+{
+  "name": "Alexandra Mena Sansano",
+  "role": "Lead Product Designer",
+  "evidenceAsOf": "2026-09",
+  "projects": [
+    {
+      "client": "BBVA",
+      "title": "One model. Six markets. Room for the differences.",
+      "description": "A global business banking platform, followed by responsive standardisation and a programme of product evolution.",
+      "years": "2022–2025",
+      "status": "Implemented",
+      "evidence": "6 markets aligned",
+      "outcome": "The global platform, GEMA and Financial Health functionality were implemented and remain operational, as documented in September 2026. Across the wider BBVA relationship, I shared account-development responsibility with the account director; the account grew by almost 30% during that period.",
+      "limits": "The growth figure is a shared account result. Usage, conversion and efficiency metrics are not available. The six-market scope belongs to the global platform; GEMA’s exact geographic scope is not confirmed.",
+      "lenses": [
+        "leadership",
+        "principal"
+      ],
+      "path": "/Portfolio/work/bbva-business-banking/"
+    },
+    {
+      "client": "Coca-Cola",
+      "title": "Give fragmented knowledge a common entry point.",
+      "description": "An LLM-based internal MVP bringing four marketing programmes into one experience.",
+      "years": "2024–2025",
+      "status": "Internal MVP",
+      "evidence": "4 programmes orchestrated",
+      "outcome": "An internal MVP and future-state experience were completed. The work demonstrated a common entry point to four programmes and a product direction for knowledge access.",
+      "limits": "The project was documented as work in progress in September 2026. Production deployment, adoption and efficiency gains are not confirmed. The degree of functional integration is not independently established here.",
+      "lenses": [
+        "ai",
+        "principal"
+      ],
+      "path": "/Portfolio/work/coca-cola-ai-workspace/"
+    },
+    {
+      "client": "CaixaBank",
+      "title": "A bank manager’s working day. A two-week brief.",
+      "description": "Research, product concept, ten screens and a navigable prototype for an AI-assisted manager tool.",
+      "years": "2025",
+      "status": "Concept delivered",
+      "evidence": "2 weeks to delivery",
+      "outcome": "The package was delivered in less than two weeks. The project contributed to securing 40 of the 60 planned FTE for VML The Cocktail and opened the possibility of a design account with CaixaBank.",
+      "limits": "The FTE figure is a commercial team outcome, not a personal team size. Production deployment, user validation, adoption and operational gains are not confirmed.",
+      "lenses": [
+        "ai",
+        "leadership",
+        "principal"
+      ],
+      "path": "/Portfolio/work/caixabank-manager-tool/"
+    },
+    {
+      "client": "Movelia",
+      "title": "The brand promise has to reach the booking.",
+      "description": "An integrated direction for narrative, identity and the digital reservation experience.",
+      "years": "2025",
+      "status": "In implementation",
+      "evidence": "1 connected brand-to-product direction",
+      "outcome": "The identity and digital product package were delivered for implementation. The project was still in implementation when documented in September 2026.",
+      "limits": "Launch, conversion, usability and adoption results are not confirmed. Unreleased identity assets and interfaces are not included in this public narrative.",
+      "lenses": [
+        "leadership",
+        "principal"
+      ],
+      "path": "/Portfolio/work/movelia-brand-and-booking/"
+    },
+    {
+      "client": "Zip Water",
+      "title": "The interface is part of the object.",
+      "description": "Five interaction concepts for a smart tap, shaped by hardware, wet hands and moments of limited attention.",
+      "years": "2026",
+      "status": "Concepts in validation",
+      "evidence": "5 interactive concepts",
+      "outcome": "The concepts and prototypes were delivered for selection and validation. The product line was planned for 2027 when the work was documented in September 2026.",
+      "limits": "The final concept, workshop findings and launch are not confirmed. AI supported the design process; an AI capability in the final tap is not claimed.",
+      "lenses": [
+        "ai",
+        "principal"
+      ],
+      "path": "/Portfolio/work/zip-water-interface/"
+    }
+  ],
+  "selections": [
+    {
+      "label": "Product leadership",
+      "path": "/Portfolio/focus/product-leadership/",
+      "projectPaths": [
+        "/Portfolio/work/bbva-business-banking/",
+        "/Portfolio/work/movelia-brand-and-booking/",
+        "/Portfolio/work/caixabank-manager-tool/"
+      ]
+    },
+    {
+      "label": "Product & AI",
+      "path": "/Portfolio/focus/product-and-ai/",
+      "projectPaths": [
+        "/Portfolio/work/coca-cola-ai-workspace/",
+        "/Portfolio/work/caixabank-manager-tool/",
+        "/Portfolio/work/zip-water-interface/"
+      ]
+    },
+    {
+      "label": "Staff / Principal",
+      "path": "/Portfolio/focus/staff-and-principal/",
+      "projectPaths": [
+        "/Portfolio/work/bbva-business-banking/",
+        "/Portfolio/work/caixabank-manager-tool/",
+        "/Portfolio/work/zip-water-interface/"
+      ]
+    }
+  ]
+}
