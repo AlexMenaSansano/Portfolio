@@ -1,0 +1,31 @@
+---
+import { sitePath } from "../../lib/paths";
+import Layout from '../../layouts/Layout.astro';
+import Contact from '../../components/Contact.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Arrow from '../../components/Arrow.astro';
+import { projects, collections } from '../../data/portfolio';
+export function getStaticPaths() {
+  return collections.map(collection => ({ params: { slug: collection.slug }, props: { collection } }));
+}
+const { collection } = Astro.props;
+const selected = collection.ids.map((id: string) => projects.find(project => project.slug === id)!);
+---
+<Layout title={`${collection.label} — Álex Mena`} description={collection.intro} active="work">
+  <section class="page-heading focus-heading container"><a class="text-link case-back" href={sitePath("/work/")}>← All selected work</a><div class="section-kicker"><span class="small-square"></span>A focused selection / {collection.label}</div><h1>{collection.title}</h1><p class="page-intro">{collection.intro}</p><p class="focus-fit">{collection.fit}</p><button class="text-link copy-selection" data-copy-url>Copy selection link <Arrow diagonal /></button><span class="copy-status" role="status" aria-live="polite"></span></section>
+  <section class="container focused-work" aria-label={collection.label}><div class="project-grid">{selected.map((project, index) => <ProjectCard project={project} index={index} />)}</div><div class="focus-profile"><p>I’m Alexandra Mena Sansano, a Lead Product Designer based in Madrid. I connect product strategy, human behaviour, narrative and technology, and stay close to the work through prototyping, systems and delivery.</p><a class="text-link" href={sitePath("/profile/")}>Read my profile <Arrow diagonal /></a></div></section>
+  <Contact />
+  <script>
+    const button = document.querySelector<HTMLButtonElement>('[data-copy-url]');
+    const status = document.querySelector<HTMLElement>('.copy-status');
+    button?.addEventListener('click', async () => {
+      if (!status) return;
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        status.textContent = 'Link copied.';
+      } catch {
+        status.textContent = `Copy this address: ${window.location.href}`;
+      }
+    });
+  </script>
+</Layout>

@@ -1,0 +1,81 @@
+---
+import { sitePath } from "../lib/paths";
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '../styles/global.css';
+import '../styles/visual-v2.css';
+import Arrow from '../components/Arrow.astro';
+import { person } from '../data/portfolio';
+const {
+  title = 'Álex Mena — Lead Product Designer',
+  description = 'Product direction, human behaviour and technology. Selected work by Alexandra Mena Sansano across global banking, applied AI and physical–digital experiences.',
+  active = '',
+} = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {import.meta.env.PUBLIC_PORTFOLIO_PREVIEW === 'true' && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href={sitePath("/favicon.svg")} />
+  </head>
+  <body class="visual-v2">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner container">
+        <a href={sitePath("/")} class="wordmark" aria-label="Álex Mena, home"><span class="wordmark-symbol" aria-hidden="true">a.</span><span>Álex Mena</span></a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a class:list={{ current: active === 'work' }} href={sitePath("/work/")} aria-current={active === 'work' ? 'page' : undefined}>Work</a>
+          <a class:list={{ current: active === 'profile' }} href={sitePath("/profile/")} aria-current={active === 'profile' ? 'page' : undefined}>Profile</a>
+          <a href={sitePath("/#approach")}>Approach</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="header-cv text-link" href={sitePath(person.cv)} download>CV <Arrow diagonal /></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu"><span>Menu</span><span class="menu-symbol" aria-hidden="true">+</span></button>
+      </div>
+      <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
+        <a href={sitePath("/work/")}>Work</a><a href={sitePath("/profile/")}>Profile</a><a href={sitePath("/#approach")}>Approach</a><a href="#contact">Contact</a><a href={sitePath(person.cv)} download>Download CV</a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="container footer-main"><a class="wordmark" href={sitePath("/")}>álex mena<span class="brand-dot"></span></a><p>Product direction. Human perspective.</p><div class="footer-links"><a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow diagonal /></a><a href={sitePath(person.cv)} download>Download CV <Arrow diagonal /></a></div></div>
+      <div class="container footer-bottom"><span>© {new Date().getUTCFullYear()} Alexandra Mena Sansano</span><span>Based in Madrid. Working across contexts.</span><a href="#main" class="back-top">Back to top ↑</a></div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const menu = document.querySelector<HTMLElement>('#mobile-menu');
+      const closeMenu = () => {
+        if (!toggle || !menu) return;
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+      };
+      toggle?.addEventListener('click', () => {
+        if (!menu) return;
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.hidden = expanded;
+      });
+      menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+          closeMenu(); toggle.focus();
+        }
+      });
+      window.matchMedia('(min-width: 801px)').addEventListener('change', closeMenu);
+    </script>
+  </body>
+</html>

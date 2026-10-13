@@ -1,0 +1,11 @@
+---
+import Arrow from './Arrow.astro';
+import { person } from '../data/portfolio';
+---
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-kicker"><span class="small-square"></span>Start a conversation</div>
+    <div class="contact-heading"><h2>A good next chapter<br />starts with <em>a conversation.</em></h2><a class="contact-round" href={`mailto:${person.email}`} aria-label="Email Alexandra"><Arrow diagonal /></a></div>
+    <div class="contact-details"><p>Senior product roles with real ownership.<br />Madrid, or remote from Spain. Spanish & English.</p><a class="text-link contact-email" href={`mailto:${person.email}`}>{person.email}<Arrow diagonal /></a></div>
+  </div>
+</section>

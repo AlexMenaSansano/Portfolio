@@ -1,0 +1,14 @@
+---
+import { sitePath } from "../lib/paths";
+import ProjectArt from './ProjectArt.astro';
+import Arrow from './Arrow.astro';
+import type { Project } from '../data/portfolio';
+const { project, index = 0 } = Astro.props as { project: Project; index?: number };
+---
+<a class="project-card" href={sitePath(`/work/${project.slug}/`)}>
+  <ProjectArt kind={project.art} />
+  <div class="project-meta"><span>{String(index + 1).padStart(2, '0')} / {project.client}</span><span>{project.year}</span></div>
+  <div class="project-title-row"><h3>{project.title}</h3><span class="project-arrow"><Arrow diagonal /></span></div>
+  <p class="project-description">{project.description}</p>
+  <div class="project-bottom"><span>{project.discipline}</span><span class="status-label"><span class="status-dot"></span>{project.status}</span></div>
+</a>

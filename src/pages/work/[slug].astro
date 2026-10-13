@@ -1,0 +1,29 @@
+---
+import { sitePath } from "../../lib/paths";
+import Layout from '../../layouts/Layout.astro';
+import Arrow from '../../components/Arrow.astro';
+import Contact from '../../components/Contact.astro';
+import ProjectArt from '../../components/ProjectArt.astro';
+import { projects, type Project } from '../../data/portfolio';
+export function getStaticPaths() {
+  return projects.map(project => ({ params: { slug: project.slug }, props: { project } }));
+}
+const { project } = Astro.props as { project: Project };
+const nextProject = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
+---
+<Layout title={`${project.client} — ${project.title} — Álex Mena`} description={project.description} active="work">
+  <article>
+    <header class="case-heading container"><a class="text-link case-back" href={sitePath("/work/")}>← Selected work</a><div class="case-eyebrow"><span>{project.client} / {project.year}</span><span class="status-label"><span class="status-dot"></span>{project.status}</span></div><h1>{project.title}</h1><p class="case-opening">{project.opening}</p><div class="case-facts"><div><span>Role</span><p>Lead Product Designer</p></div><div><span>Focus</span><p>{project.discipline}</p></div><div><span>Evidence</span><p>{project.proof} {project.proofLabel}</p></div></div></header>
+    <div class="container case-art"><ProjectArt kind={project.art} large /><p class="image-caption">Original conceptual artwork for this public narrative, not a client deliverable. Client interfaces are not reproduced.</p></div>
+    <div class="container case-content"><aside class="case-toc"><span class="section-kicker">In this case</span><nav aria-label="Case contents"><a href="#context">The brief</a><a href="#responsibility">My responsibility</a><a href="#decisions">Decisions</a><a href="#delivery">Delivery</a><a href="#outcome">Outcome</a></nav></aside><div class="case-narrative">
+      <section class="narrative-section" id="context"><span class="section-kicker">01 / The brief</span><h2>What needed<br /><em>to change.</em></h2><p>{project.context}</p></section>
+      <section class="narrative-section" id="responsibility"><span class="section-kicker">02 / My responsibility</span><h2>The work<br /><em>I owned.</em></h2><p>{project.ownership}</p></section>
+      {project.timeline && <section class="case-timeline" aria-label="Progression through BBVA">{project.timeline.map(step => <div class="timeline-step"><span>{step.year}</span><h3>{step.title}</h3><p>{step.body}</p></div>)}</section>}
+      <section class="narrative-section" id="decisions"><span class="section-kicker">03 / Decisions</span><h2>Where I shaped<br /><em>the direction.</em></h2><div class="decision-list">{project.decisions.map((decision, i) => <div class="decision"><span class="decision-number">0{i + 1}</span><div><h3>{decision.title}</h3><p>{decision.body}</p></div></div>)}</div></section>
+      <section class="narrative-section" id="delivery"><span class="section-kicker">04 / Delivery</span><h2>What made<br /><em>it tangible.</em></h2><ul class="delivery-list">{project.delivery.map(item => <li><Arrow diagonal />{item}</li>)}</ul></section>
+      <section class="narrative-section outcome-section" id="outcome"><span class="section-kicker">05 / Outcome</span><h2>The result,<br /><em>with its boundaries.</em></h2><p>{project.outcome}</p><div class="case-limits"><h3>What is not established</h3><p>{project.limits}</p></div><p class="evidence-date">Evidence documented September 2026.</p></section>
+    </div></div>
+    <a href={sitePath(`/work/${nextProject.slug}/`)} class="next-case container"><span>Next case / {nextProject.client}</span><h2>{nextProject.title}</h2><Arrow diagonal /></a>
+  </article>
+  <Contact />
+</Layout>

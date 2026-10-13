@@ -1,0 +1,7 @@
+---
+import { sitePath } from "../lib/paths";
+import Layout from '../layouts/Layout.astro';
+import Contact from '../components/Contact.astro';
+import Arrow from '../components/Arrow.astro';
+---
+<Layout title="Page not found — Álex Mena"><section class="page-heading container"><div class="section-kicker">404 / A small detour</div><h1>Let’s find<br /><em>a way back.</em></h1><p class="page-intro">This page isn’t here. The selected work is a good place to continue.</p><a class="button button-dark" href={sitePath("/work/")}>Explore the work <Arrow diagonal /></a></section><Contact /></Layout>

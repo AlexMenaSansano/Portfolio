@@ -36,4 +36,4 @@ La siguiente muestra captura la respuesta de un caso al pasar el cursor: cambia 
 
 [Comparar con la primera versión](../README.md)
 
-Estas son capturas y una muestra de interacción para revisar la dirección visual. La web todavía no está desplegada.
+Estas capturas y la muestra de interacción documentan la dirección visual. Se ha preparado una versión navegable en la rama `gh-pages`; necesita que GitHub Pages esté activado para servir esa rama desde `/ (root)`. La dirección esperada es `https://alexmenasansano.github.io/Portfolio/`, pendiente de comprobar tras la activación.
