@@ -2,6 +2,8 @@
 
 Una base gráfica en blanco y negro, tipografía sans serif con más presencia, retrato personal, cubiertas conceptuales y una composición de proyectos de distinta escala. El contenido y los hechos de los cinco casos se han conservado.
 
+Actualización: la portada y el perfil utilizan la nueva fotografía facilitada por Alexandra. Se ha convertido el RAW a una versión web y ajustado el encuadre para escritorio y móvil. El blanco y negro pertenece al tratamiento visual de la web.
+
 ## Portada
 
 ![Portada — versión 2](inicio-desktop.png)
@@ -22,9 +24,15 @@ La siguiente muestra captura la respuesta de un caso al pasar el cursor: cambia 
 
 ![Presentación — versión 2](presentacion.png)
 
+## Perfil con la nueva fotografía
+
+![Perfil — retrato actualizado](perfil.png)
+
 ## Móvil
 
 ![Portada móvil — versión 2](inicio-mobile.png)
+
+![Perfil móvil — retrato actualizado](perfil-mobile.png)
 
 [Comparar con la primera versión](../README.md)
 
