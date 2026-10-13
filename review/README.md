@@ -1,5 +1,7 @@
 # Propuesta visual del portfolio
 
+**[Ver la nueva dirección visual — versión 2](v2/README.md)**
+
 Primera versión para revisión de Alexandra Mena Sansano. Esta rama contiene capturas para poder ver la propuesta fuera del chat. No es un despliegue de la web.
 
 ## Inicio
