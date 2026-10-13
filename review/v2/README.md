@@ -1,8 +1,8 @@
 # Portfolio — nueva dirección visual / V2
 
-Una base gráfica en blanco y negro, tipografía sans serif con más presencia, retrato personal, cubiertas conceptuales y una composición de proyectos de distinta escala. El contenido y los hechos de los cinco casos se han conservado.
+Una base gráfica en blanco y negro, tipografía sans serif con más presencia, portada tipográfica, cubiertas conceptuales y una composición de proyectos de distinta escala. El contenido y los hechos de los cinco casos se han conservado.
 
-Actualización: la portada y el perfil utilizan la nueva fotografía facilitada por Alexandra. Se ha convertido el RAW a una versión web y ajustado el encuadre para escritorio y móvil. El blanco y negro pertenece al tratamiento visual de la web.
+Actualización: la fotografía aparece exclusivamente en Profile. La portada utiliza el titular a todo el ancho, con dos líneas en escritorio y tres en móvil. El retrato facilitado por Alexandra se ha convertido del RAW a una versión web; su encuadre y el blanco y negro se aplican con CSS.
 
 ## Portada
 
