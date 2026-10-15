@@ -7,7 +7,7 @@ const { kind, large = false } = Astro.props as { kind: Project['art']; large?: b
 <div class:list={['project-art', 'project-art-v2', `art-${kind}`, { 'art-large': large }]} aria-hidden="true">
   <div class:list={['art-scene', `scene-${kind}`]}></div>
   <div class="art-topline"><span>{kind === 'bbva' ? 'Global product' : kind === 'coca-cola' ? 'Connected knowledge' : kind === 'caixabank' ? 'A focused sprint' : kind === 'movelia' ? 'Brand into product' : 'Interaction in context'}</span><span class="art-corner"><Arrow diagonal /></span></div>
-  {kind === 'bbva' && <><div class="art-map"><img src={sitePath("/images/markets-map.svg")} alt="" width="720" height="310" loading="lazy"/><span>ES · PT · MX · CO · AR · UY</span></div><span class="art-number">06<span>markets.<br />one model.</span></span></>}
+  {kind === 'bbva' && <><div class="art-map"><img src={sitePath("/images/markets-map.svg")} alt="" width="720" height="310" loading="lazy"/></div><span class="art-number">06<span>markets.<br />one model.</span></span></>}
   {kind === 'coca-cola' && <span class="art-keyline">Four programmes.<br /><strong>One entry point.</strong></span>}
   {kind === 'caixabank' && <span class="art-keyline">Ten screens.<br /><strong>Two weeks.</strong></span>}
   {kind === 'movelia' && <><div class="movelia-graphic"><svg viewBox="0 0 440 260"><path d="M30 200h310m-75-80 80 80-80 80"/><path d="M30 120h200m-65-75 80 75-80 75"/></svg></div><span class="art-keyline">A story.<br /><strong>A journey.</strong></span></>}

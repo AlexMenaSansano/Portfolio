@@ -2,7 +2,7 @@
 
 Web en inglés para mostrar criterio de producto, liderazgo, IA aplicada y diseño físico-digital. La segunda dirección visual usa una base gráfica en blanco y negro, una portada tipográfica y cubiertas conceptuales originales. El retrato personal aparece solo en Profile. Incluye cinco casos públicos, perfil y tres selecciones con URL propia para candidaturas: Product leadership, Product & AI y Staff / Principal.
 
-La portada usa «I lead design. From strategy to delivery.» y destaca la conexión entre negocio, estrategia de producto, comportamiento humano y tecnología. Su ancho y tipografía se adaptan al viewport completo; se han comprobado tamaños de 320 a 3840 px, incluidas pantallas de poca altura. Las cifras de geografías y stakeholders presentan experiencia transversal; los casos conservan su atribución y alcance originales.
+La portada concreta el alcance del trabajo: «I lead design for banking platforms, AI tools and connected products.» El texto de apoyo es un párrafo continuo que conecta negocio, estrategia de producto, comportamiento humano y tecnología. Ningún texto visible debe tener menos de 16 px, incluidos menú, metadatos, etiquetas y pies de página. Su ancho y tipografía se adaptan al viewport completo; se han comprobado tamaños de 320 a 3840 px, incluidas pantallas de poca altura. Las cifras de geografías y stakeholders presentan experiencia transversal; los casos conservan su atribución y alcance originales.
 
 ## Desarrollo
 
@@ -23,7 +23,7 @@ npm run build
 npm test
 ```
 
-Playwright comprueba rutas, enlaces internos, filtros, menú móvil y teclado, enlaces de selección, descarga PDF, atribuciones, ausencia de desbordamientos entre 320 y 1440 px, interacción con las cubiertas y controles de movimiento. Utiliza `/usr/bin/chromium` cuando existe. En otra máquina se puede instalar Chromium con `npx playwright install chromium` o indicar una instalación existente mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
+Playwright comprueba rutas, enlaces internos, filtros, menú móvil y teclado, enlaces de selección, descarga PDF, atribuciones, ausencia de desbordamientos y tamaño mínimo de texto visible de 16 px entre 320 y 1440 px, interacción con las cubiertas y controles de movimiento. Utiliza `/usr/bin/chromium` cuando existe. En otra máquina se puede instalar Chromium con `npx playwright install chromium` o indicar una instalación existente mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
 ## Contenido
 

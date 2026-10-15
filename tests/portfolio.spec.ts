@@ -95,6 +95,24 @@ test('pages remain readable at narrow and wide widths', async ({ page }) => {
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${route} at ${width}px`).toBe(true);
       await expect(page.locator('h1')).toBeVisible();
+      const undersizedText = await page.evaluate(() => {
+        const violations: string[] = [];
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          const element = node.parentElement;
+          if (!node.textContent?.trim() || !element || ['SCRIPT', 'STYLE'].includes(element.tagName)) continue;
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          const rect = range.getBoundingClientRect();
+          const style = getComputedStyle(element);
+          if (rect.width && rect.height && style.visibility !== 'hidden' && parseFloat(style.fontSize) < 16) {
+            violations.push(`${node.textContent.trim().slice(0, 60)}: ${style.fontSize}`);
+          }
+        }
+        return violations;
+      });
+      expect(undersizedText, `${route} at ${width}px: text must be at least 16px`).toEqual([]);
     }
   }
 });
