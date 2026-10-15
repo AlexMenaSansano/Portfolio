@@ -1,5 +1,9 @@
 # Portfolio — nueva dirección visual / V2
 
+**[Abrir la revisión navegable actual](https://alexmenasansano.github.io/Portfolio/)**
+
+Las capturas siguientes documentan la propuesta anterior. La web incorpora las revisiones posteriores de texto, escala y composición.
+
 Una base gráfica en blanco y negro, tipografía sans serif con más presencia, portada tipográfica, cubiertas conceptuales y una composición de proyectos de distinta escala. El contenido y los hechos de los cinco casos se han conservado.
 
 Actualización: la fotografía aparece exclusivamente en Profile. La portada utiliza el titular a todo el ancho, con dos líneas en escritorio y tres en móvil. El retrato facilitado por Alexandra se ha convertido del RAW a una versión web; su encuadre y el blanco y negro se aplican con CSS.
@@ -36,4 +40,4 @@ La siguiente muestra captura la respuesta de un caso al pasar el cursor: cambia 
 
 [Comparar con la primera versión](../README.md)
 
-Estas capturas y la muestra de interacción documentan la dirección visual. Se ha preparado una versión navegable en la rama `gh-pages`; necesita que GitHub Pages esté activado para servir esa rama desde `/ (root)`. La dirección esperada es `https://alexmenasansano.github.io/Portfolio/`, pendiente de comprobar tras la activación.
+GitHub Pages sirve la revisión navegable desde la rama `gh-pages`, en `/ (root)`. Las revisiones posteriores se publican en esa misma dirección.

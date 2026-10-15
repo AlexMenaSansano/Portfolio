@@ -2,6 +2,8 @@
 
 Web en inglés para mostrar criterio de producto, liderazgo, IA aplicada y diseño físico-digital. La segunda dirección visual usa una base gráfica en blanco y negro, una portada tipográfica y cubiertas conceptuales originales. El retrato personal aparece solo en Profile. Incluye cinco casos públicos, perfil y tres selecciones con URL propia para candidaturas: Product leadership, Product & AI y Staff / Principal.
 
+La portada usa «I lead design. From strategy to delivery.» y destaca la conexión entre negocio, estrategia de producto, comportamiento humano y tecnología. Su ancho y tipografía se adaptan al viewport completo; se han comprobado tamaños de 320 a 3840 px, incluidas pantallas de poca altura. Las cifras de geografías y stakeholders presentan experiencia transversal; los casos conservan su atribución y alcance originales.
+
 ## Desarrollo
 
 Node.js 24.19.0 es la versión comprobada; Astro requiere Node 22.12 o superior.
@@ -43,14 +45,14 @@ Mormedi no aparece como caso de éxito mientras no haya resultado final document
 
 ## Publicación
 
-La revisión navegable está preparada para GitHub Pages en `/Portfolio/`. Es necesario habilitar Pages en el repositorio, con **Deploy from a branch → gh-pages → / (root)**. La creación de la rama no activa ese ajuste por sí sola. La URL esperada tras activarlo es `https://alexmenasansano.github.io/Portfolio/`; no se da por operativa hasta comprobar una respuesta real.
+La revisión navegable está en https://alexmenasansano.github.io/Portfolio/. GitHub Pages sirve la rama `gh-pages` desde `/ (root)`; tanto la respuesta pública como la configuración de Pages se han comprobado.
 
 ```sh
 npm run build:preview
 npm run publish:preview
 ```
 
-La primera orden genera `.preview-dist/` con los enlaces y recursos bajo `/Portfolio/`, una meta `noindex, nofollow`, `robots.txt` y `.nojekyll`. La segunda actualiza la rama `gh-pages` mediante un índice Git separado, sin cambiar el checkout ni su área de staging. No usa force push. Una vez activado Pages, cada actualización mantiene la misma URL; la publicación puede tardar unos minutos y no ofrece recarga en vivo del servidor local.
+La primera orden genera `.preview-dist/` con los enlaces y recursos bajo `/Portfolio/`, una meta `noindex, nofollow`, `robots.txt` y `.nojekyll`. La segunda actualiza la rama `gh-pages` mediante un índice Git separado, sin cambiar el checkout ni su área de staging. No usa force push. Cada actualización mantiene la misma URL; la publicación puede tardar unos minutos y no ofrece recarga en vivo del servidor local.
 
 El build normal conserva `/` para desarrollo y otros alojamientos. `sitePath()` aplica el prefijo a enlaces y archivos públicos; Vite adapta los recursos CSS. Cuando se elija un dominio definitivo, añadir `site` en `astro.config.mjs` para generar URLs canónicas y preparar la imagen de compartir.
 

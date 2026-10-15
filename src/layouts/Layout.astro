@@ -36,7 +36,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner container">
-        <a href={sitePath("/")} class="wordmark" aria-label="Álex Mena, home"><span class="wordmark-symbol" aria-hidden="true">a.</span><span>Álex Mena</span></a>
+        <a href={sitePath("/")} class="wordmark" aria-label="Álex Mena, home"><span>Álex Mena</span></a>
         <nav class="desktop-nav" aria-label="Main navigation">
           <a class:list={{ current: active === 'work' }} href={sitePath("/work/")} aria-current={active === 'work' ? 'page' : undefined}>Work</a>
           <a class:list={{ current: active === 'profile' }} href={sitePath("/profile/")} aria-current={active === 'profile' ? 'page' : undefined}>Profile</a>
