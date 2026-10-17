@@ -6,6 +6,8 @@ La portada concreta el alcance del trabajo: «I lead design for banking platform
 
 La propuesta de narrativa para posiciones de dirección de diseño está en https://alexmenasansano.github.io/Portfolio/direction/. Tras el feedback de Alexandra y la revisión de las siete capturas de `REferencias.zip`, se organiza en siete bloques: apertura visual, presentación, perspectiva personal, proyectos, enfoque, archivo y contacto. Conserva el claim aceptado y añade una dirección visual de galería con dos imágenes editoriales originales y una narrativa de escucha, autonomía y confianza. Una galería horizontal accesible presenta BBVA, Movelia y Coca-Cola; las cinco colaboraciones documentadas forman la primera selección de Archives, pendiente de la lista completa de Alexandra. Se mantiene Lead Product Designer como cargo real y el retrato exclusivamente en Profile. El criterio está en [review/head-designer-narrative.md](review/head-designer-narrative.md). La portada principal y los casos completos conservan la versión anterior mientras se revisa esta propuesta.
 
+La nueva exploración de imágenes «Dar espacio» se puede revisar en https://alexmenasansano.github.io/Portfolio/art-direction/. Esa página ofrece las versiones horizontal y móvil, PNG originales, WebP y prompts, con URLs públicas para evitar depender del visor de imágenes del chat. Usa blanco dominante, cerámica verde profundo y un acento verde agua. Las imágenes se revisan antes de incorporarlas a la propuesta de Home.
+
 ## Desarrollo
 
 Node.js 24.19.0 es la versión comprobada; Astro requiere Node 22.12 o superior.

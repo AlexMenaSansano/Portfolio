@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const routes = ['/', '/direction/', '/profile/', '/work/', '/work/bbva-business-banking/',
+const routes = ['/', '/direction/', '/art-direction/', '/profile/', '/work/', '/work/bbva-business-banking/',
   '/work/coca-cola-ai-workspace/', '/work/caixabank-manager-tool/',
   '/work/movelia-brand-and-booking/', '/work/zip-water-interface/',
   '/focus/product-leadership/', '/focus/product-and-ai/', '/focus/staff-and-principal/'];
