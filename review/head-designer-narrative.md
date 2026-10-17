@@ -1,36 +1,35 @@
-# Propuesta de narrativa — dirección de diseño
+# Narrativa y dirección visual — Home de siete bloques
 
 Revisión del 17 de octubre de 2026. Propuesta navegable: https://alexmenasansano.github.io/Portfolio/direction/.
 
-La nueva referencia facilitada es https://www.leoparpeix.com/. Su revisión está pendiente: la petición HTTPS devolvió un bloqueo del proxy (CONNECT 403). Se añadieron `leoparpeix.com` y `www.leoparpeix.com` al borrador de red, conservando los destinos anteriores. La propuesta siguiente parte de los casos y preferencias documentados de Alexandra; no se atribuye a una inspección de esa referencia.
+Alexandra aceptó la base de contenido de la propuesta anterior y pidió más calidez, una jerarquía clara, menor carga cognitiva y una explicación de cómo escucha, empodera y da seguridad al equipo. Después definió siete bloques y aportó `REferencias.zip`, con siete capturas de Léo Parpeix. Se han revisado todas las capturas; no se atribuye a ellas una inspección de las animaciones o interacciones del sitio original. La petición HTTPS a esa web había quedado bloqueada, pero las capturas ya permiten trabajar la referencia visual facilitada.
 
-## La tesis
-
-El portfolio debe demostrar cómo Alexandra establece una dirección de producto, coordina a quienes tienen que hacerla posible y mantiene el criterio de diseño durante la entrega. Se conserva Lead Product Designer como cargo real. El nivel de responsabilidad se muestra mediante el trabajo, sin presentar Head of Design como un cargo histórico ni inferir contratación, presupuestos o reportes directos.
-
-Texto de portada propuesto:
+## Lo que se conserva
 
 > I set product direction. And lead teams through delivery.
 >
 > I connect business goals, human behaviour and technology to lead design across banking platforms, AI workspaces and connected products.
 
-La frase está pendiente de feedback. Explicita responsabilidad y alcance, sin prometer métricas de adopción o efectos no documentados.
+El titular sigue en el primer bloque; el párrafo de alcance pasa a la presentación. Se conserva Lead Product Designer como cargo real, la atribución de resultados y los estados de septiembre de 2026. Se muestra responsabilidad de dirección sin inferir contratación, presupuestos o reportes directos. El retrato suministrado aparece exclusivamente en Profile.
 
-## El recorrido
+## Los siete bloques
 
-1. **Dirección y alcance.** Presentación y tres accesos a historias. El texto de apoyo es un párrafo completo.
-2. **Responsabilidad y perspectiva.** Producto, coordinación y entrega; formación audiovisual, fotografía y economía del comportamiento como criterio propio. Las seis geografías, 72+ stakeholders y 22 personas describen experiencia transversal. La última cifra se identifica como el mayor equipo coordinado, sin convertirla en reportes directos.
-3. **BBVA como caso principal.** Dirección internacional y continuidad desde la plataforma global hasta responsive y Financial Health. Seis mercados solo en la plataforma global; España en Financial Health. Mapa, relación entre modelo común y diferencias locales, y secuencia temporal. Enlace al caso completo con atribución compartida del crecimiento de cuenta.
-4. **Movelia como segunda historia.** Liderazgo de narrativa, identidad, producto y relación con cliente. El diagrama conecta disciplinas y recorrido de reserva. Se explicita la entrega para implementación; no se atribuyen lanzamiento ni resultados de conversión.
-5. **Coca-Cola como tercera historia.** Definición de un producto con IA desde la tarea de marketing. Diagrama de cuatro programas y un punto de entrada, con estado de MVP interno. No se presenta adopción o despliegue en producción.
-6. **CaixaBank y Zip Water como amplitud.** Concepto bajo un plazo de dos semanas e interacción condicionada por hardware y contexto físico. No se confunde el resultado comercial de CaixaBank con tamaño de equipo ni la IA usada en prototipado con una capacidad del grifo.
-7. **Cómo lidera.** Tres responsabilidades asociadas a ejemplos: aclarar decisiones de producto, alinear disciplinas y mantener el criterio durante la entrega.
-8. **Contacto.** Conversación sobre dirección de producto y liderazgo de diseño, con acceso directo al email y al CV en la navegación.
+1. **Apertura aspiracional.** Imagen de una instalación escultórica original, claim aceptado y cuatro fortalezas: Product direction, Human behaviour, Visual storytelling y Team leadership. La composición deja espacio para el texto y se adapta a móviles de poca altura.
+2. **Presentación.** Nombre, disciplina y ámbito de trabajo: Madrid, híbrido en Madrid o remoto desde España. Una composición tipográfica de escala grande expresa Product Design & Leadership. El párrafo reutilizado concreta sectores y enfoque; se incluyen contacto y alcance transversal: seis geografías, 72+ stakeholders y el mayor equipo coordinado de 22 personas.
+3. **Perspectiva personal.** Se conecta la formación audiovisual, fotografía y economía del comportamiento con la atención a las personas. La narrativa introduce las ideas, dudas y ambiciones del equipo y la confianza para hacer propio el trabajo. La imagen editorial de manos componiendo formas de papel aporta una presencia humana sin sustituir el retrato personal.
+4. **Proyectos.** Entrada explícita Selected work, fondo y escala propios, y galería horizontal con BBVA, Movelia y Coca-Cola. Cada caso identifica cliente, estado, año, responsabilidad, mensaje y acceso al caso completo. Los textos y diagramas reutilizan la base anterior. La navegación admite botones, teclado y desplazamiento nativo. Los controles no hacen avanzar automáticamente la galería. CaixaBank y Zip Water siguen accesibles desde All five cases y Archives.
+5. **Enfoque.** Clear direction. Room to grow. Tres comportamientos: escuchar antes de decidir, dar contexto y responsabilidad, y crear confianza para preguntar, discrepar y probar. El objetivo de superar expectativas se presenta como intención de liderazgo, sin inventar resultados o testimonios. La responsabilidad sobre prototipos, sistemas y entrega sigue explícita.
+6. **Archives.** Lista de cliente, responsabilidad y año con acceso al caso. La selección inicial incluye solo las cinco colaboraciones documentadas. Alexandra ha indicado que facilitará la lista completa; no se presenta esta selección como exhaustiva. Los datos se amplían en `src/data/collaborations.ts`.
+7. **CTA y footer.** Invitación personal, email, LinkedIn, CV, regreso al inicio y créditos de las imágenes.
 
-## Sistema visual de la propuesta
+## Sistema visual y referencia
 
-Base cálida y tinta oscura; Inter y un contraste puntual con Instrument Serif. Azul para la plataforma global, terracota para la conexión entre marca y producto, lavanda para conocimiento e IA. Los bloques tienen tamaños distintos según su peso narrativo. Las piezas visuales explican relaciones verificadas en los casos; están identificadas como diagramas editoriales, no como pantallas o entregables de cliente.
+Las capturas aportan una apertura escénica, una presentación tipográfica de gran escala, composiciones personales con aire, una galería reconocible, un enfoque con imagen y un archivo sobrio. Se adapta esa estructura con un motivo propio: formas distintas que se sostienen entre sí y un proceso compartido para componerlas. No se reutilizan las imágenes, la flor, la abeja, los proyectos ni los textos de Léo.
 
-La interacción sirve a la lectura: índice con anclas, accesos claros a casos y respuestas al cursor también disponibles con teclado. No hay movimiento automático. Se mantienen texto mínimo de 16 CSS px, tamaños fluidos, portada sin retrato y fotografía exclusivamente en Profile.
+La base es papel cálido, tinta verde oscura, terracota y un contraste entre Inter e Instrument Serif. Las dos imágenes de cabecera y perspectiva son arte editorial original generado con IA. Los gráficos de proyecto representan alcance documentado; no son pantallas de cliente. La procedencia se explica en Image credits y los gráficos tienen una aclaración junto a la galería.
 
-La propuesta se revisa en `/direction/` para poder valorar su narrativa antes de convertirla en la portada principal y extender su dirección visual a todo el sitio. Los casos completos y Profile conservan por ahora su diseño anterior. La comparación visual con Léo sigue pendiente de acceso real a su web.
+Los capítulos están numerados. El menú enlaza a los bloques de la propuesta y marca la ubicación al recorrerlos. Se mantiene un mínimo de 16 CSS px en todo texto visible, también metadatos, archivo y controles. La interfaz respeta movimiento reducido y no tiene animaciones automáticas. La intención de facilitar una primera lectura de seis segundos es un criterio de composición, no una métrica validada con usuarios.
+
+## Alcance de esta revisión
+
+La propuesta continúa en `/direction/` para el feedback. La portada principal, los casos completos y Profile conservan el diseño anterior; los casos mantienen el detalle que se ha aligerado en la Home. No se ha inferido que existan nuevos resultados, adopción o lanzamientos desde septiembre de 2026.

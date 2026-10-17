@@ -70,6 +70,40 @@ test('focused selections can be shared and contain their intended cases', async 
   expect(clipboard).toBe('http://127.0.0.1:4322/focus/product-and-ai/');
 });
 
+test('the editorial home gallery and chapter navigation work with keyboard and mobile controls', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/direction/');
+    const gallery = page.getByRole('region', { name: 'Selected projects gallery. Use the arrow keys to browse.' });
+    const next = page.getByRole('button', { name: 'Next project' });
+    const previous = page.getByRole('button', { name: 'Previous project' });
+    await expect(previous).toBeDisabled();
+    await next.click();
+    await expect(page.locator('[data-gallery-current]')).toHaveText('02');
+    await gallery.focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('[data-gallery-current]')).toHaveText('03');
+    await expect(next).toBeDisabled();
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.locator('[data-gallery-current]')).toHaveText('02');
+    const thirdCard = page.getByRole('article', { name: 'Coca-Cola, 3 of 3' });
+    await thirdCard.getByRole('link', { name: 'Read the Coca-Cola case' }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(/\/work\/coca-cola-ai-workspace\/$/);
+    await page.goto('/direction/');
+    if (width === 390) await page.getByRole('button', { name: 'Menu', exact: true }).click();
+    const navigation = page.getByRole('navigation', { name: width === 390 ? 'Mobile navigation' : 'Main navigation' });
+    await navigation.getByRole('link', { name: 'Archives', exact: true }).click();
+    await expect(page).toHaveURL(/\/direction\/#archives$/);
+    await expect(page.locator('.desktop-nav a[href="#archives"]')).toHaveAttribute('aria-current', 'location');
+    const archive = page.getByRole('list', { name: 'Selected client collaborations' });
+    await expect(archive).toBeInViewport();
+    await archive.getByRole('link', { name: /Zip Water/ }).click();
+    await expect(page).toHaveURL(/\/work\/zip-water-interface\/$/);
+  }
+});
+
 test('cases retain attribution, project status and evidence boundaries', async ({ page, request }) => {
   await page.goto('/work/bbva-business-banking/');
   await expect(page.locator('#outcome')).toContainText('shared account result');

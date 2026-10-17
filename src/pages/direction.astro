@@ -1,312 +1,125 @@
 ---
 import '@fontsource/instrument-serif/400-italic.css';
+import '../styles/direction.css';
 import Layout from '../layouts/Layout.astro';
 import Arrow from '../components/Arrow.astro';
 import { sitePath } from '../lib/paths';
 import { person, projects } from '../data/portfolio';
+import { collaborations } from '../data/collaborations';
 
 const projectPath = (slug: string) => sitePath(`/work/${slug}/`);
-const status = (slug: string) => projects.find(project => project.slug === slug)!.status;
+const featured = [
+  { slug: 'bbva-business-banking', title: 'One product direction. Six markets to align.', focus: 'International product leadership', summary: 'I led the global platform from definition to implementation, then continued through responsive standardisation and Financial Health in Spain.' },
+  { slug: 'movelia-brand-and-booking', title: 'The brand promise. All the way to booking.', focus: 'Multidisciplinary design direction', summary: 'I led narrative, identity and the reservation experience, bringing product, visual design and writing together with the client.' },
+  { slug: 'coca-cola-ai-workspace', title: 'Four programmes. One way into the knowledge.', focus: 'AI product direction', summary: 'I led the interaction model and day-to-day design decisions for an internal AI workspace, in close collaboration with technology.' },
+].map(item => ({ ...projects.find(project => project.slug === item.slug)!, ...item }));
+const archive = collaborations.map(item => ({ ...projects.find(project => project.slug === item.slug)!, ...item }));
+const powers = ['Product direction', 'Human behaviour', 'Visual storytelling', 'Team leadership'];
 ---
-<Layout title="Álex Mena — Product direction & design leadership" description="I set product direction and lead teams through delivery. Selected work across international banking, brand and product, applied AI and connected products." homeHref={sitePath('/direction/')} approachHref="#approach">
+<Layout title="Álex Mena — Product direction & design leadership" description="I set product direction and lead teams through delivery. A human perspective on product, design and the people who make it happen." homeHref={sitePath('/direction/')} workHref="#selected-work" profileHref="#about" profileLabel="About" approachHref="#approach" archiveHref="#archives" headerRole="Lead Product Designer" showFooter={false}>
   <div class="direction">
-    <section class="direction-hero editorial-shell">
-      <div class="editorial-eyebrow"><span>Álex Mena / Lead Product Designer</span><span>Madrid, Spain</span></div>
-      <h1>I set product direction.<br />And lead teams<br /><em>through delivery.</em></h1>
-      <div class="hero-context">
-        <p>I connect business goals, human behaviour and technology to lead design across banking platforms, AI workspaces and connected products.</p>
-        <span class="hero-signature">Product strategy.<br />A human perspective.<br />Design in the detail.</span>
+    <section class="gallery-hero home-chapter" id="direction" data-chapter="01 / Direction" aria-labelledby="direction-title">
+      <img class="gallery-hero-image" src={sitePath('/images/shared-direction.webp')} width="1672" height="941" alt="" fetchpriority="high" />
+      <div class="hero-content editorial-shell">
+        <div class="hero-topline"><span class="chapter-label">01 / Product direction</span><span>Business. People. Technology.</span></div>
+        <h1 id="direction-title">I set product direction.<br />And lead teams<br /><em>through delivery.</em></h1>
+        <div class="hero-bottom"><ul class="superpowers" aria-label="My strengths">{powers.map((power, i) => <li><span aria-hidden="true">0{i + 1}</span>{power}</li>)}</ul><a class="hero-next" href="#about">Meet the person behind the work <Arrow /></a></div>
       </div>
-      <nav class="story-index" aria-label="Explore the leadership stories">
-        <a href="#global-platform"><span class="index-full">01 / International product</span><span class="index-short">01 / Product</span><Arrow diagonal /></a>
-        <a href="#brand-product"><span class="index-full">02 / Brand into product</span><span class="index-short">02 / Brand</span><Arrow diagonal /></a>
-        <a href="#applied-ai"><span>03 / AI</span><Arrow diagonal /></a>
-      </nav>
     </section>
 
-    <section class="direction-intro editorial-shell" aria-labelledby="direction-intro-title">
-      <div class="editorial-label"><span class="editorial-dot"></span> The responsibility</div>
-      <div class="intro-story"><h2 id="direction-intro-title">Set the direction.<br />Bring people into it.<br /><span>Carry it into the product.</span></h2><p>My work spans product definition, multidisciplinary team leadership and design delivery. I work with business and engineering to make the decisions clear, help the team resolve them and keep the experience coherent through implementation.</p><p>A background in audiovisual communication, photography and behavioural economics informs how I read a context, understand people and shape the story a product tells.</p><a class="editorial-link" href={sitePath('/profile/')}>More about my approach <Arrow diagonal /></a></div>
-      <dl class="scope-grid" aria-label="Experience across projects">
-        <div><dt>6</dt><dd>Geographies<br /><span>Experience leading international projects</span></dd></div>
-        <div><dt>72+</dt><dd>Stakeholders<br /><span>Alignment in complex product ecosystems</span></dd></div>
-        <div><dt>22</dt><dd>People<br /><span>Largest team coordinated</span></dd></div>
-      </dl>
+    <section class="about-chapter home-chapter editorial-shell" id="about" data-chapter="02 / About" aria-labelledby="about-title">
+      <div class="chapter-topline"><span class="chapter-label">02 / A little context</span><span>Álex Mena / Madrid, Spain</span></div>
+      <div class="identity-context"><p>I’m Alexandra Mena Sansano.<br />A product designer with a human perspective.</p><p>Based in Madrid.<br />Open to hybrid roles in Madrid<br />and remote roles from Spain.</p></div>
+      <h2 class="identity-title" id="about-title"><span>PRODUCT</span><span>DESIGN <em>&</em></span><span>LEADERSHIP<span class="identity-period">.</span></span></h2>
+      <div class="identity-bottom"><p>I connect business goals, human behaviour and technology to lead design across banking platforms, AI workspaces and connected products.</p><a class="editorial-link" href={`mailto:${person.email}`}>Let’s talk <Arrow diagonal /></a></div>
+      <dl class="scope-grid" aria-label="Experience across projects"><div><dt>6</dt><dd>Geographies<span>Experience leading international projects</span></dd></div><div><dt>72+</dt><dd>Stakeholders<span>Alignment across complex product ecosystems</span></dd></div><div><dt>22</dt><dd>People<span>Largest team coordinated</span></dd></div></dl>
     </section>
 
-    <section class="leadership-work" id="selected-work" aria-label="Selected work">
-      <article class="feature-story" id="global-platform">
-        <div class="story-header editorial-shell"><span>01 / BBVA</span><span>Product & programme leadership / 2022–2025</span></div>
-        <div class="story-heading editorial-shell"><h2>One product direction.<br /><em>Six markets to align.</em></h2><a class="round-link" href={projectPath('bbva-business-banking')} aria-label="Read the BBVA case"><Arrow diagonal /></a></div>
-        <figure class="platform-visual editorial-shell">
-          <div class="platform-surface">
-            <div class="visual-heading"><span>Global business banking</span><span>{status('bbva-business-banking')}</span></div>
-            <div class="platform-map"><img src={sitePath('/images/markets-map.svg')} width="720" height="310" alt="Six markets: Spain, Portugal, Mexico, Colombia, Argentina and Uruguay." loading="lazy" /><strong>One shared<br /><em>platform model.</em></strong></div>
-            <div class="market-labels"><span>Spain</span><span>Portugal</span><span>Mexico</span><span>Colombia</span><span>Argentina</span><span>Uruguay</span></div>
-            <div class="platform-model"><span>Shared architecture & interaction</span><span class="model-arrow" aria-hidden="true">↔</span><span>Local legal & technical requirements</span></div>
-          </div>
-          <figcaption>Editorial diagram of the documented project scope. Client interfaces are not reproduced.</figcaption>
-        </figure>
-        <div class="story-detail editorial-shell">
-          <div class="responsibility"><span class="editorial-label">What I led</span><p>The global platform’s definition and implementation, with three to four designers and two UI developers. I later led responsive standardisation and a continuing Financial Health programme in Spain.</p></div>
-          <div class="story-decision"><h3>A common model that could accommodate local differences.</h3><p>I shaped architecture, content and interaction within an established design system, aligning business, product and technology as the work moved between markets and teams.</p><a class="editorial-link" href={projectPath('bbva-business-banking')}>Read the decisions & outcome <Arrow diagonal /></a></div>
-        </div>
-        <ol class="programme-path editorial-shell" aria-label="Progression of responsibility at BBVA"><li><span>2022</span><h3>Global platform</h3><p>A common transactional model across six markets.</p></li><li><span>2023</span><h3>GEMA Responsive</h3><p>Mobile interaction across different stacks and legacy systems.</p></li><li><span>2023–25</span><h3>Financial Health</h3><p>Continuing design direction across up to five parallel projects in Spain.</p></li></ol>
-      </article>
-
-      <article class="feature-story movelia-story" id="brand-product">
-        <div class="story-header editorial-shell"><span>02 / Movelia</span><span>Multidisciplinary design direction / 2025</span></div>
-        <div class="story-heading editorial-shell"><h2>The brand promise.<br /><em>All the way to booking.</em></h2><a class="round-link" href={projectPath('movelia-brand-and-booking')} aria-label="Read the Movelia case"><Arrow diagonal /></a></div>
-        <figure class="brand-visual editorial-shell"><div class="brand-surface"><div class="visual-heading"><span>A connected direction</span><span>{status('movelia-brand-and-booking')}</span></div><div class="brand-sequence"><span>Narrative</span><span class="sequence-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 5 14 14M5 19h14V5"/></svg></span><span>Identity</span><span class="sequence-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 5 14 14M5 19h14V5"/></svg></span><span>Booking</span></div><div class="brand-disciplines"><span>Product design</span><span>Visual design</span><span>Narrative & UX writing</span></div></div><figcaption>Editorial representation of the project’s disciplines and scope. Unreleased identity and product assets remain private.</figcaption></figure>
-        <div class="story-detail editorial-shell"><div class="responsibility"><span class="editorial-label">What I led</span><p>The project end to end and the direct client relationship, with three product designers, a visual lead and two narrative and UX writing specialists.</p></div><div class="story-decision"><h3>Give the brand and the product the same direction.</h3><p>I shaped the narrative behind the identity and guided its translation into architecture, navigation and the reservation journey. The identity and digital product package were delivered for implementation.</p><a class="editorial-link" href={projectPath('movelia-brand-and-booking')}>Read the direction & delivery <Arrow diagonal /></a></div></div>
-      </article>
-
-      <article class="feature-story ai-story" id="applied-ai">
-        <div class="story-header editorial-shell"><span>03 / Coca-Cola</span><span>AI product direction / 2024–2025</span></div>
-        <div class="story-heading editorial-shell"><h2>Four programmes.<br /><em>One way into the knowledge.</em></h2><a class="round-link" href={projectPath('coca-cola-ai-workspace')} aria-label="Read the Coca-Cola case"><Arrow diagonal /></a></div>
-        <div class="ai-composition editorial-shell"><figure class="knowledge-visual"><div class="visual-heading"><span>Internal AI workspace</span><span>{status('coca-cola-ai-workspace')}</span></div><div class="programme-nodes" aria-label="Four marketing programmes"><span>01</span><span>02</span><span>03</span><span>04</span></div><div class="knowledge-connectors" aria-hidden="true"></div><div class="knowledge-entry"><span>One entry point</span><p>Find precedents.<br />Develop ideas.<br />Reconnect with collaborators.</p></div><figcaption>Editorial diagram of the product proposition.</figcaption></figure><div class="ai-story-copy"><span class="editorial-label">What I led</span><h3>Start with the marketing task. Define what AI needs to do.</h3><p>I led the interaction model and day-to-day design decisions, working in English with technology specialists. Up to seven designers contributed at different stages.</p><p>The work delivered an internal LLM-based MVP and a future-state experience. Production deployment and adoption are not confirmed.</p><a class="editorial-link" href={projectPath('coca-cola-ai-workspace')}>Read the product decisions <Arrow diagonal /></a></div></div>
-      </article>
-
-      <section class="further-work editorial-shell" aria-labelledby="further-work-title"><div class="further-heading"><span class="editorial-label">Two more contexts</span><h2 id="further-work-title">The same judgement.<br /><em>Different constraints.</em></h2></div><div class="further-grid">
-        <article class="compact-case"><div class="compact-top"><span>CaixaBank / 2025</span><span>{status('caixabank-manager-tool')}</span></div><div class="sprint-proof" aria-label="Ten screens in two weeks"><strong>10<span>screens</span></strong><span class="sprint-divider" aria-hidden="true">/</span><strong>2<span>weeks</span></strong></div><h3>Make an AI product direction tangible in two weeks.</h3><p>I owned the research, product concept and interaction model for a bank manager tool, with a specialist visual team supporting the final expression.</p><a class="editorial-link" href={projectPath('caixabank-manager-tool')}>Read the concept & delivery <Arrow diagonal /></a></article>
-        <article class="compact-case zip-case"><div class="compact-top"><span>Zip Water / 2026</span><span>{status('zip-water-interface')}</span></div><div class="physical-proof" aria-label="Five digital interaction concepts"><span aria-hidden="true"></span><span aria-hidden="true"></span><strong>5<span>interactive concepts</span></strong><span aria-hidden="true"></span><span aria-hidden="true"></span></div><h3>Design the interaction around the physical product.</h3><p>I developed five digital concepts and prototypes with input from industrial design. Hardware, wet hands and limited attention shaped the decisions.</p><a class="editorial-link" href={projectPath('zip-water-interface')}>Read the interaction approach <Arrow diagonal /></a></article>
-      </div><p class="evidence-note">Project status and outcomes reflect the documentation available in September 2026. The full cases distinguish delivery, implementation and results.</p></section>
+    <section class="perspective-chapter home-chapter editorial-shell" id="perspective" data-chapter="03 / Perspective" aria-labelledby="perspective-title">
+      <div class="chapter-topline"><span class="chapter-label">03 / The person in the work</span><span>A shared direction starts with a conversation.</span></div>
+      <div class="perspective-composition"><div class="perspective-copy"><h2 id="perspective-title">Set the direction.<br />Bring people into it.<br /><em>Help them go further.</em></h2><p>My background combines audiovisual communication, photography, behavioural economics and product design. It shapes how I read a context, pay attention to people and give an idea a form.</p><p>I listen to the people closest to the work—their ideas, doubts and ambitions. I want the team to feel heard and have the confidence to make the work their own.</p><a class="editorial-link" href={sitePath('/profile/')}>A little more about me <Arrow diagonal /></a></div><figure class="perspective-study"><img src={sitePath('/images/shared-perspective.webp')} width="1448" height="1086" alt="Editorial study of two hands arranging paper shapes together on a sunlit table." loading="lazy" /><figcaption>Different perspectives. A shared direction.<span>Editorial study</span></figcaption></figure></div>
     </section>
 
-    <section class="leadership-practice" id="approach"><div class="editorial-shell"><div class="practice-heading"><span class="editorial-label">How I lead</span><h2>Direction has to hold up<br /><em>in the work.</em></h2></div><div class="practice-grid">
-      <div><span>01 / Product</span><h3>Make the decisions clear.</h3><p>Connect the business context, people’s needs and technical constraints. Use research and prototypes to establish a direction the team can work with.</p><a href={projectPath('caixabank-manager-tool')}>In practice: CaixaBank <Arrow diagonal /></a></div>
-      <div><span>02 / People</span><h3>Keep disciplines aligned.</h3><p>Give product, visual design, writing and engineering a common frame. Review the decisions together and help the team resolve competing requirements.</p><a href={projectPath('movelia-brand-and-booking')}>In practice: Movelia <Arrow diagonal /></a></div>
-      <div><span>03 / Delivery</span><h3>Stay close to the detail.</h3><p>Follow the experience through systems, documentation and implementation. Keep the product’s logic intact as the work moves between teams.</p><a href={projectPath('bbva-business-banking')}>In practice: BBVA <Arrow diagonal /></a></div>
-    </div></div></section>
+    <section class="work-chapter home-chapter" id="selected-work" data-chapter="04 / Selected work" aria-labelledby="selected-work-title">
+      <div class="work-opening editorial-shell"><div><span class="chapter-label">04 / Projects</span><h2 id="selected-work-title">Selected <em>work.</em></h2><p>Product direction, the teams behind it, and what we delivered.</p></div><div class="gallery-controls"><span class="gallery-count" aria-live="polite" aria-atomic="true"><span data-gallery-current>01</span> / 03</span><button type="button" data-gallery-previous aria-label="Previous project" disabled><span class="previous-arrow"><Arrow /></span></button><button type="button" data-gallery-next aria-label="Next project"><Arrow /></button></div></div>
+      <div class="project-gallery" tabindex="0" role="region" aria-label="Selected projects gallery. Use the arrow keys to browse.">
+        {featured.map((project, i) => <article class:list={['gallery-project', `gallery-project-${project.art}`]} id={i === 0 ? 'global-platform' : i === 1 ? 'brand-product' : 'applied-ai'} aria-label={`${project.client}, ${i + 1} of 3`}>
+          <a class="project-visual-link" href={projectPath(project.slug)} aria-label={`Read the ${project.client} case`}>
+            <div class:list={['project-exhibit', `exhibit-${project.art}`]} aria-hidden="true"><div class="exhibit-topline"><span>{project.client}</span><span>{project.status}</span></div>
+              {project.art === 'bbva' && <><img class="exhibit-map" src={sitePath('/images/markets-map.svg')} width="720" height="310" alt="" loading="lazy" /><div class="exhibit-statement"><strong>06</strong><span>markets.<br />one shared model.</span></div><div class="exhibit-baseline"><span>Architecture · Interaction · Local requirements</span><Arrow diagonal /></div></>}
+              {project.art === 'movelia' && <><div class="exhibit-brand"><span>Narrative</span><Arrow diagonal /><span>Identity</span><Arrow diagonal /><span>Booking</span></div><div class="exhibit-baseline"><span>One connected direction</span><Arrow diagonal /></div></>}
+              {project.art === 'coca-cola' && <><div class="exhibit-knowledge"><div class="knowledge-programmes">{[1,2,3,4].map(n => <span>0{n}</span>)}</div><span class="knowledge-line"></span><strong>One entry point.</strong></div><div class="exhibit-baseline"><span>Find precedents · Develop ideas · Connect people</span><Arrow diagonal /></div></>}
+            </div>
+          </a>
+          <div class="project-caption"><div class="project-caption-meta"><span>0{i + 1} / {project.client}</span><span>{project.year}</span></div><div class="project-caption-body"><div><span class="project-focus">{project.focus}</span><h3><a href={projectPath(project.slug)}>{project.title}</a></h3></div><div><p>{project.summary}</p><a class="editorial-link" href={projectPath(project.slug)}>Read the case <Arrow diagonal /></a></div></div></div>
+        </article>)}
+      </div>
+      <div class="work-bottom editorial-shell"><p>The project visuals are editorial diagrams of the documented scope. Client interfaces remain private.</p><a class="editorial-link" href={sitePath('/work/')}>All five cases <Arrow diagonal /></a></div>
+    </section>
 
-    <section class="direction-contact editorial-shell" id="contact"><span class="editorial-label">Let’s work together</span><div><h2>Let’s talk about<br /><em>what needs direction.</em></h2><a class="round-link" href={`mailto:${person.email}`} aria-label="Email Alexandra"><Arrow diagonal /></a></div><div class="contact-line"><p>Product direction & design leadership.<br />Madrid, or remote from Spain. Spanish & English.</p><a class="editorial-link" href={`mailto:${person.email}`}>{person.email}<Arrow diagonal /></a></div></section>
+    <section class="approach-chapter home-chapter" id="approach" data-chapter="05 / How I lead" aria-labelledby="approach-title">
+      <div class="approach-image"><img src={sitePath('/images/shared-direction.webp')} width="1672" height="941" alt="" loading="lazy" /><div class="approach-image-copy editorial-shell"><span class="chapter-label">05 / How I lead</span><h2 id="approach-title">Clear direction.<br /><em>Room to grow.</em></h2><p>I want people to feel heard, trusted and confident enough to go beyond what they thought they could do.</p></div></div>
+      <div class="practice-grid editorial-shell"><div><span>01 / Listen</span><h3>Make room for every voice.</h3><p>I listen before deciding. I ask what people see, what they need and where they feel uncertain, so their perspective can shape the work.</p></div><div><span>02 / Empower</span><h3>Share the context. Give ownership.</h3><p>I make the direction and expectations clear, then give people room to make decisions and bring their own judgement to the solution.</p></div><div><span>03 / Support</span><h3>Build confidence to stretch.</h3><p>I make it safe to ask questions, challenge a direction and try something new. Honest feedback and steady support help people grow beyond their own expectations.</p></div></div>
+      <div class="practice-delivery editorial-shell"><span class="chapter-label">And through the work</span><p>I stay close to prototypes, systems and delivery—helping the team resolve the detail and keeping the product’s logic intact through implementation.</p></div>
+    </section>
+
+    <section class="archive-chapter home-chapter editorial-shell" id="archives" data-chapter="06 / Archives" aria-labelledby="archives-title"><div class="chapter-topline"><span class="chapter-label">06 / Collaborations</span><span>Client, responsibility & year</span></div><div class="archive-heading"><h2 id="archives-title">Archives<em>.</em></h2><p>A selection across banking, mobility, AI and connected products.</p></div><div class="archive-labels" aria-hidden="true"><span>Client</span><span>Responsibility</span><span>Year</span><span></span></div><ul class="archive-list" aria-label="Selected client collaborations">{archive.map(project => <li><a class="archive-row" href={projectPath(project.slug)}><span class="archive-client">{project.client}</span><span class="archive-role">{project.responsibility}</span><span class="archive-year">{project.year}</span><span><span class="sr-only">Read the {project.client} case</span><Arrow diagonal /></span></a></li>)}</ul></section>
+
+    <footer class="contact-chapter home-chapter editorial-shell" id="contact" data-chapter="07 / Let’s talk" aria-labelledby="contact-title"><div class="chapter-topline"><span class="chapter-label">07 / A conversation</span><span>Madrid / Spanish & English</span></div><h2 id="contact-title">Let’s build<br />something<br /><em>worth caring about.</em></h2><div class="contact-invitation"><p>A product to shape. A team to grow.<br />I’d love to hear what you have in mind.</p><a class="contact-email" href={`mailto:${person.email}`}>{person.email}<Arrow diagonal /></a></div><div class="contact-footer"><span>© {new Date().getUTCFullYear()} Álex Mena</span><div><a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow diagonal /></a><a href={sitePath(person.cv)} download>CV <Arrow diagonal /></a><a href="#direction">Back to top ↑</a></div><details class="image-credit"><summary>Image credits</summary><p>Original AI-generated editorial artwork for this portfolio. Project graphics illustrate documented scope and are not client deliverables.</p></details></div></footer>
   </div>
-</Layout>
+  <script>
+    const track = document.querySelector<HTMLElement>('.project-gallery');
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('.gallery-project'));
+    const previous = document.querySelector<HTMLButtonElement>('[data-gallery-previous]');
+    const next = document.querySelector<HTMLButtonElement>('[data-gallery-next]');
+    const counter = document.querySelector<HTMLElement>('[data-gallery-current]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    const positions = () => cards.map(card => track ? card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft - parseFloat(getComputedStyle(track).paddingLeft) : 0);
+    const updateGallery = () => {
+      if (!track) return;
+      const offsets = positions();
+      current = offsets.reduce((best, position, i) => Math.abs(position - track.scrollLeft) < Math.abs(offsets[best] - track.scrollLeft) ? i : best, 0);
+      if (counter) counter.textContent = String(current + 1).padStart(2, '0');
+      if (previous) previous.disabled = current === 0;
+      if (next) next.disabled = current === cards.length - 1;
+    };
+    const goTo = (index: number) => {
+      if (!track) return;
+      const target = Math.max(0, Math.min(cards.length - 1, index));
+      track.scrollTo({ left: positions()[target], behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+    };
+    previous?.addEventListener('click', () => goTo(current - 1));
+    next?.addEventListener('click', () => goTo(current + 1));
+    track?.addEventListener('scroll', updateGallery, { passive: true });
+    track?.addEventListener('keydown', event => {
+      if (event.target !== track || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault(); goTo(current + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    if (track) new ResizeObserver(updateGallery).observe(track);
+    updateGallery();
 
-<style>
-  .direction { --direction-paper: #f5f4ee; --direction-ink: #22231f; --direction-blue: #2549eb; background: var(--direction-paper); color: var(--direction-ink); }
-  .editorial-shell { width: calc(100% - 2 * clamp(20px, 4vw, 140px)); margin-inline: auto; }
-  .direction h1, .direction h2, .direction h3 { font-weight: 500; }
-  .direction em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; }
-  .editorial-eyebrow, .story-header, .visual-heading, .compact-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px 32px; font-size: 16px; line-height: 1.5; }
-  .direction-hero { container-type: inline-size; min-height: calc(92svh - var(--header-height)); display: flex; flex-direction: column; padding-top: clamp(22px, 3svh, 48px); }
-  .direction-hero h1 { margin-block: auto; padding-block: clamp(40px, 7svh, 100px); font-size: clamp(36px, min(8.4cqw, 12svh), 320px); line-height: .99; letter-spacing: -.065em; }
-  .direction-hero h1 em { color: var(--direction-blue); font-size: 1.17em; line-height: .92; letter-spacing: -.045em; }
-  .hero-context { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 32px; padding-bottom: clamp(28px, 4svh, 64px); align-items: end; }
-  .hero-context p { font-size: clamp(20px, 1.7vw, 40px); line-height: 1.45; letter-spacing: -.025em; max-width: 49ch; }
-  .hero-signature { justify-self: end; font-size: clamp(16px, 1.05vw, 28px); line-height: 1.5; }
-  .story-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; border-top: 1px solid var(--direction-ink); }
-  .story-index a { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 21px; font-size: clamp(16px, 1.15vw, 28px); }
-  .story-index a .arrow-icon { width: 24px; height: 24px; transition: transform .2s; }
-  .index-short { display: none; }
-  .story-index a:hover .arrow-icon { transform: translate(3px, -3px); }
-  .direction-intro { display: grid; grid-template-columns: 1fr 2fr; column-gap: 6vw; row-gap: 58px; padding-block: clamp(70px, 9vw, 180px); }
-  .editorial-label { font-size: 16px; line-height: 1.5; display: flex; align-items: center; gap: 10px; }
-  .editorial-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--direction-blue); }
-  .direction-intro > .editorial-label { align-self: start; padding-top: 10px; }
-  .intro-story h2 { font-size: clamp(34px, 3.9vw, 90px); line-height: 1.08; margin-bottom: 32px; letter-spacing: -.045em; }
-  .intro-story h2 > span { color: #6b6c64; }
-  .intro-story p { font-size: clamp(18px, 1.25vw, 28px); line-height: 1.65; max-width: 64ch; margin-bottom: 20px; }
-  .editorial-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 9px; border-bottom: 1px solid currentColor; font-size: 16px; line-height: 1.5; max-width: 100%; }
-  .editorial-link .arrow-icon { width: 20px; height: 20px; transition: transform .2s; }
-  .editorial-link:hover .arrow-icon { transform: translate(3px, -3px); }
-  .scope-grid { grid-column: 1 / -1; margin: 18px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #bebeb6; padding-top: 24px; gap: 32px; }
-  .scope-grid > div { display: flex; flex-direction: column; }
-  .scope-grid dt { font-size: clamp(64px, 7vw, 190px); line-height: 1.1; letter-spacing: -.065em; }
-  .scope-grid dd { margin: 14px 0 0; font-size: 18px; line-height: 1.5; }
-  .scope-grid dd > span { display: block; margin-top: 8px; font-size: 16px; color: #5c5d56; max-width: 27ch; }
-  .feature-story { padding-block: 40px 90px; border-top: 1px solid #bebeb6; }
-  .story-header > span:last-child { text-align: right; }
-  .story-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-block: 45px 44px; }
-  .story-heading h2 { font-size: clamp(36px, 5vw, 140px); letter-spacing: -.055em; line-height: 1.03; }
-  .story-heading h2 em { font-size: 1.15em; letter-spacing: -.035em; }
-  .round-link { display: flex; justify-content: center; align-items: center; flex-shrink: 0; width: 68px; height: 68px; border: 1px solid currentColor; border-radius: 50%; transition: color .25s, background .25s; }
-  .round-link .arrow-icon { width: 27px; height: 27px; }
-  .round-link:hover { color: var(--direction-paper); background: var(--direction-ink); }
-  .platform-surface { color: #fff; background: var(--direction-blue); padding: clamp(24px, 3vw, 90px); overflow: hidden; }
-  .visual-heading { position: relative; z-index: 1; }
-  .platform-map { position: relative; display: flex; align-items: center; min-height: 380px; padding-block: 7%; }
-  .platform-map img { width: 90%; margin-left: auto; opacity: .36; }
-  .platform-map strong { position: absolute; left: 0; font-size: clamp(42px, 5.5vw, 145px); line-height: 1; letter-spacing: -.055em; font-weight: 400; }
-  .platform-map strong em { font-size: 1.15em; letter-spacing: -.035em; }
-  .market-labels { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; padding-block: 22px; border-top: 1px solid #ffffff5c; font-size: 16px; }
-  .platform-model { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center; border-top: 1px solid #ffffff5c; padding-top: 20px; font-size: clamp(18px, 1.5vw, 34px); line-height: 1.3; letter-spacing: -.025em; }
-  .platform-model > span:last-child { text-align: right; }
-  .model-arrow { font-size: 32px; }
-  figcaption { font-size: 16px; line-height: 1.6; padding-top: 16px; color: #5c5d56; max-width: 75ch; }
-  .story-detail { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(32px, 8vw, 220px); padding-block: 46px 36px; }
-  .responsibility > p { font-size: clamp(17px, 1.25vw, 28px); line-height: 1.65; margin-top: 18px; max-width: 55ch; }
-  .story-decision h3, .ai-story-copy h3 { font-size: clamp(25px, 2.5vw, 55px); line-height: 1.18; letter-spacing: -.04em; }
-  .story-decision > p, .ai-story-copy > p { font-size: clamp(17px, 1.2vw, 26px); line-height: 1.65; margin-block: 20px; max-width: 56ch; }
-  .programme-path { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; gap: 32px; }
-  .programme-path li { border-top: 1px solid #bebeb6; padding-top: 19px; }
-  .programme-path li > span { font-size: 16px; color: #5c5d56; }
-  .programme-path h3 { font-size: clamp(21px, 1.7vw, 42px); margin-block: 18px 12px; }
-  .programme-path p { font-size: 16px; max-width: 35ch; line-height: 1.6; }
-  .brand-surface { background: #e95d35; color: #201b17; padding: clamp(24px, 3vw, 90px); }
-  .brand-sequence { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 22px; align-items: center; padding-block: 105px; font-size: clamp(32px, 5vw, 145px); font-weight: 500; letter-spacing: -.055em; line-height: 1; }
-  .sequence-arrow { font-weight: 400; font-size: .65em; }
-  .sequence-arrow svg { width: 1em; height: 1em; stroke: currentColor; stroke-width: 1.2; }
-  .brand-disciplines { display: flex; justify-content: space-between; gap: 18px; border-top: 1px solid #201b1770; padding-top: 22px; font-size: 16px; }
-  .ai-composition { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(30px, 5vw, 130px); align-items: center; }
-  .knowledge-visual { background: #e5e6f7; color: #242345; padding: clamp(24px, 3vw, 75px); }
-  .knowledge-visual .visual-heading { flex-wrap: wrap; }
-  .programme-nodes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 60px; }
-  .programme-nodes > span { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid #72728b; border-radius: 50%; font-size: clamp(20px, 2vw, 48px); letter-spacing: -.04em; }
-  .knowledge-connectors { height: 44px; width: 78%; margin-inline: auto; border: 1px solid #72728b; border-top: 0; border-radius: 0 0 20px 20px; position: relative; }
-  .knowledge-connectors::after { content: ''; position: absolute; height: 26px; width: 1px; background: #72728b; left: 50%; top: 100%; }
-  .knowledge-entry { border: 1px solid #72728b; background: #f4f2ff; margin-top: 26px; padding: 25px; }
-  .knowledge-entry > span { font-size: 16px; }
-  .knowledge-entry p { font-size: clamp(24px, 2.6vw, 60px); line-height: 1.15; letter-spacing: -.04em; margin-top: 24px; }
-  .knowledge-visual figcaption { margin-top: 30px; color: #56556e; }
-  .ai-story-copy h3 { margin-top: 22px; }
-  .further-work { padding-block: 20px 90px; }
-  .further-heading { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; padding-block: 20px 40px; }
-  .further-heading h2 { font-size: clamp(32px, 3.8vw, 90px); line-height: 1.08; }
-  .further-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
-  .compact-case { padding: clamp(24px, 3vw, 80px); background: #e9e8df; min-width: 0; }
-  .compact-top { flex-wrap: wrap; gap: 8px; }
-  .compact-top > span:last-child { color: #5c5d56; }
-  .sprint-proof { display: flex; align-items: center; gap: 28px; padding-block: 56px; }
-  .sprint-proof strong, .physical-proof strong { font-size: clamp(58px, 7.2vw, 170px); line-height: .95; font-weight: 400; letter-spacing: -.065em; }
-  .sprint-proof strong > span, .physical-proof strong > span { display: block; margin-top: 12px; font-size: 16px; letter-spacing: 0; line-height: 1.5; }
-  .sprint-divider { color: #77786c; font-size: clamp(42px, 5vw, 90px); font-family: 'Instrument Serif', Georgia, serif; }
-  .compact-case h3 { font-size: clamp(26px, 2.4vw, 55px); line-height: 1.12; }
-  .compact-case > p { font-size: clamp(17px, 1.2vw, 26px); line-height: 1.65; margin-block: 22px; max-width: 52ch; }
-  .zip-case { background: #d7e1d9; }
-  .physical-proof { display: grid; grid-template-columns: 1fr 1fr 3fr 1fr 1fr; gap: 14px; align-items: center; text-align: center; padding-block: 56px; }
-  .physical-proof > span { aspect-ratio: .7; border: 1px solid #768879; border-radius: 50%; }
-  .physical-proof > span:nth-child(2), .physical-proof > span:nth-child(4) { height: 80%; }
-  .evidence-note { font-size: 16px; line-height: 1.6; color: #5c5d56; max-width: 90ch; margin-top: 24px; }
-  .leadership-practice { padding-block: clamp(60px, 7vw, 160px); color: #f5f4ee; background: #242620; }
-  .practice-heading { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; margin-bottom: 65px; }
-  .practice-heading h2 { font-size: clamp(36px, 4.4vw, 110px); }
-  .practice-heading h2 em { color: #d4e77a; font-size: 1.17em; }
-  .practice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 100px); }
-  .practice-grid > div { border-top: 1px solid #65695d; padding-top: 20px; display: flex; flex-direction: column; align-items: start; }
-  .practice-grid > div > span { color: #d4e77a; font-size: 16px; }
-  .practice-grid h3 { font-size: clamp(25px, 2.2vw, 54px); line-height: 1.1; margin-block: 27px 20px; }
-  .practice-grid p { font-size: clamp(17px, 1.15vw, 26px); line-height: 1.65; margin-bottom: 27px; color: #d2d4c9; }
-  .practice-grid a { display: flex; align-items: center; gap: 20px; font-size: 16px; padding-block: 10px; border-bottom: 1px solid #83877c; margin-top: auto; }
-  .practice-grid a .arrow-icon { width: 18px; }
-  .leadership-practice :focus-visible { outline-color: #f5f4ee; }
-  .direction-contact { padding-block: clamp(60px, 7vw, 160px); }
-  .direction-contact > div:first-of-type { display: flex; align-items: end; justify-content: space-between; gap: 25px; padding-block: 30px 60px; }
-  .direction-contact h2 { font-size: clamp(36px, 5.8vw, 150px); line-height: 1.04; }
-  .direction-contact h2 em { font-size: 1.15em; }
-  .contact-line { display: flex; justify-content: space-between; align-items: end; gap: 24px; border-top: 1px solid #bebeb6; padding-top: 26px; }
-  .contact-line p { font-size: 16px; line-height: 1.6; }
-  :global(body:has(.direction) .site-header), :global(body:has(.direction) .site-footer) { background: #f5f4ee; color: #22231f; }
-  :global(body:has(.direction) .header-inner) { width: calc(100% - 2 * clamp(20px, 4vw, 140px)); }
-  :global(body:has(.direction) .desktop-nav), :global(body:has(.direction) .header-cv), :global(body:has(.direction) .wordmark) { font-size: 18px; }
-  :global(body:has(.direction) ::selection) { color: #f5f4ee; background: #2549eb; }
-  @media (min-width: 1900px) {
-    .editorial-label, .editorial-eyebrow, .story-header, .visual-heading, .compact-top, .editorial-link, .programme-path li > span, .programme-path p, .market-labels, .brand-disciplines, figcaption, .evidence-note, .practice-grid a, .practice-grid > div > span, .contact-line p, .scope-grid dd > span { font-size: clamp(16px, 1vw, 32px); }
-    .scope-grid dd { font-size: 28px; }
-  }
-  @media (max-width: 1000px) {
-    .story-index { gap: 20px; }
-    .story-index a { align-items: start; }
-    .platform-map { min-height: 300px; }
-    .brand-sequence { padding-block: 85px; gap: 16px; }
-    .ai-composition { grid-template-columns: 1fr 1fr; gap: 28px; }
-    .knowledge-visual { padding: 24px; }
-    .knowledge-entry { padding: 20px; }
-    .programme-nodes { gap: 9px; margin-top: 38px; }
-    .further-grid { gap: 20px; }
-    .round-link { width: 52px; height: 52px; }
-    .compact-case .editorial-link { gap: 16px; }
-    .practice-heading { grid-template-columns: 1fr 2fr; }
-  }
-  @media (max-width: 700px) {
-    .direction-hero { min-height: 0; padding-top: 24px; }
-    .editorial-eyebrow { flex-wrap: wrap; gap: 5px; }
-    .editorial-eyebrow > span:last-child { display: none; }
-    .direction-hero h1 { font-size: clamp(36px, 12cqw, 70px); padding-block: 42px 32px; line-height: 1.02; letter-spacing: -.05em; }
-    .hero-context { grid-template-columns: 1fr; gap: 0; padding-bottom: 30px; }
-    .hero-context p { font-size: 20px; line-height: 1.5; }
-    .hero-signature { display: none; }
-    .story-index { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .story-index a { flex-direction: column; gap: 10px; padding-block: 16px; }
-    .story-index a .arrow-icon { width: 20px; height: 20px; }
-    .index-full { display: none; }
-    .index-short { display: inline; }
-    .direction-intro { grid-template-columns: 1fr; row-gap: 26px; padding-block: 65px; }
-    .intro-story h2 { font-size: clamp(30px, 6.7vw, 45px); margin-bottom: 25px; }
-    .intro-story p { font-size: 18px; }
-    .scope-grid { gap: 18px; margin-top: 18px; }
-    .scope-grid dt { font-size: clamp(48px, 12vw, 74px); }
-    .scope-grid dd { font-size: 16px; }
-    .scope-grid dd > span { margin-top: 12px; }
-    .feature-story { padding-block: 25px 60px; }
-    .story-header { flex-direction: column; gap: 6px; }
-    .story-header > span:last-child { text-align: left; color: #5c5d56; }
-    .story-heading { align-items: start; padding-block: 28px; gap: 16px; }
-    .story-heading h2 { font-size: clamp(29px, 6.5vw, 45px); line-height: 1.07; }
-    .story-heading h2 em { font-size: 1.1em; }
-    .story-heading .round-link { width: 38px; height: 38px; margin-top: 5px; }
-    .story-heading .round-link .arrow-icon { width: 20px; height: 20px; }
-    .platform-surface, .brand-surface { padding: 22px; }
-    .visual-heading { flex-direction: column; gap: 6px; }
-    .platform-map { min-height: 270px; margin-inline: -6px; }
-    .platform-map img { width: 100%; max-width: none; }
-    .platform-map strong { font-size: clamp(32px, 8vw, 50px); }
-    .market-labels { grid-template-columns: repeat(2, 1fr); gap: 12px; padding-block: 20px; }
-    .platform-model { grid-template-columns: 1fr; gap: 12px; font-size: 18px; }
-    .platform-model > span:last-child { text-align: left; }
-    .model-arrow { line-height: 1; }
-    .story-detail { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
-    .responsibility > p { font-size: 18px; }
-    .story-decision h3, .ai-story-copy h3 { font-size: 27px; }
-    .story-decision > p, .ai-story-copy > p { font-size: 18px; }
-    .programme-path { grid-template-columns: 1fr; gap: 24px; }
-    .programme-path h3 { font-size: 23px; margin-block: 10px; }
-    .brand-sequence { grid-template-columns: 1fr auto; padding-block: 50px; row-gap: 20px; font-size: clamp(43px, 9vw, 64px); }
-    .brand-sequence > span:nth-child(3) { padding-left: 15%; }
-    .brand-sequence > span:nth-child(5) { padding-left: 30%; }
-    .brand-disciplines { flex-direction: column; gap: 8px; }
-    .ai-composition { grid-template-columns: 1fr; gap: 30px; }
-    .knowledge-entry p { font-size: clamp(25px, 7vw, 40px); }
-    .programme-nodes { margin-top: 40px; gap: 12px; }
-    .programme-nodes > span { font-size: 24px; }
-    .knowledge-visual figcaption { margin-top: 18px; }
-    .further-work { padding-block: 0 60px; }
-    .further-heading { grid-template-columns: 1fr; gap: 20px; padding-bottom: 28px; }
-    .further-heading h2 { font-size: 34px; }
-    .further-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-    .compact-case h3 { font-size: 28px; }
-    .compact-case > p { font-size: 18px; }
-    .sprint-proof { padding-block: 45px; }
-    .sprint-proof strong, .physical-proof strong { font-size: 80px; }
-    .physical-proof { padding-block: 45px; gap: 8px; }
-    .leadership-practice { padding-block: 60px; }
-    .practice-heading { grid-template-columns: 1fr; gap: 22px; margin-bottom: 40px; }
-    .practice-heading h2 { font-size: 36px; }
-    .practice-grid { grid-template-columns: 1fr; gap: 34px; }
-    .practice-grid h3 { font-size: 28px; margin-block: 20px 15px; }
-    .practice-grid p { font-size: 18px; margin-bottom: 16px; }
-    .direction-contact > div:first-of-type { gap: 20px; padding-bottom: 38px; }
-    .direction-contact h2 { font-size: clamp(29px, 6.7vw, 44px); }
-    .direction-contact .round-link { width: 42px; height: 42px; }
-    .direction-contact .round-link .arrow-icon { width: 22px; height: 22px; }
-    .contact-line { flex-direction: column; align-items: start; }
-    .contact-line .editorial-link { gap: 14px; overflow-wrap: anywhere; }
-  }
-  @media (max-width: 360px) {
-    .scope-grid { grid-template-columns: 1fr; gap: 22px; }
-    .scope-grid > div { flex-direction: row; gap: 22px; align-items: center; }
-    .scope-grid dt { width: 100px; flex-shrink: 0; }
-    .scope-grid dd { margin: 0; }
-    .scope-grid dd > span { margin-top: 4px; }
-    .platform-surface, .brand-surface, .compact-case, .knowledge-visual { padding: 20px; }
-    .story-heading { gap: 10px; }
-    .story-heading h2 { font-size: 26px; }
-    .platform-map { min-height: 240px; }
-    .platform-map strong { font-size: 31px; }
-    .brand-sequence { font-size: 39px; }
-    .direction-contact h2 { font-size: 26px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .direction *, .direction *::before, .direction *::after { transition: none !important; }
-  }
-</style>
+    const chapters = Array.from(document.querySelectorAll<HTMLElement>('.home-chapter'));
+    const chapterLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.desktop-nav a[href^="#"], .mobile-nav a[href^="#"]'));
+    const updateChapter = () => {
+      const threshold = window.innerHeight * .3;
+      let active = chapters[0];
+      chapters.forEach(chapter => { if (chapter.getBoundingClientRect().top <= threshold) active = chapter; });
+      if (document.body.dataset.directionChapter === active?.id) return;
+      document.body.dataset.directionChapter = active?.id || 'direction';
+      chapterLinks.forEach(link => {
+        if (link.hash === `#${active?.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    let chapterUpdatePending = false;
+    const scheduleChapterUpdate = () => {
+      if (chapterUpdatePending) return;
+      chapterUpdatePending = true;
+      requestAnimationFrame(() => { updateChapter(); chapterUpdatePending = false; });
+    };
+    window.addEventListener('scroll', scheduleChapterUpdate, { passive: true });
+    window.addEventListener('resize', scheduleChapterUpdate);
+    updateChapter();
+  </script>
+</Layout>

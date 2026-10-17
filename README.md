@@ -4,7 +4,7 @@ Web en inglés para mostrar criterio de producto, liderazgo, IA aplicada y dise�
 
 La portada concreta el alcance del trabajo: «I lead design for banking platforms, AI tools and connected products.» El texto de apoyo es un párrafo continuo que conecta negocio, estrategia de producto, comportamiento humano y tecnología. Ningún texto visible debe tener menos de 16 px, incluidos menú, metadatos, etiquetas y pies de página. Su ancho y tipografía se adaptan al viewport completo; se han comprobado tamaños de 320 a 3840 px, incluidas pantallas de poca altura. Las cifras de geografías y stakeholders presentan experiencia transversal; los casos conservan su atribución y alcance originales.
 
-La propuesta de narrativa para posiciones de dirección de diseño está en https://alexmenasansano.github.io/Portfolio/direction/. Ordena el recorrido alrededor de dirección internacional (BBVA), liderazgo entre marca y producto (Movelia) y definición de productos con IA (Coca-Cola); CaixaBank y Zip Water amplían el alcance. Usa diagramas editoriales del trabajo documentado, sin pantallas de cliente, y mantiene el cargo real de Lead Product Designer. Su criterio y estado de revisión están en [review/head-designer-narrative.md](review/head-designer-narrative.md). La comparación con la nueva referencia de Léo Parpeix queda pendiente de acceso de red. La portada principal y los casos completos conservan la versión anterior mientras se revisa esta propuesta.
+La propuesta de narrativa para posiciones de dirección de diseño está en https://alexmenasansano.github.io/Portfolio/direction/. Tras el feedback de Alexandra y la revisión de las siete capturas de `REferencias.zip`, se organiza en siete bloques: apertura visual, presentación, perspectiva personal, proyectos, enfoque, archivo y contacto. Conserva el claim aceptado y añade una dirección visual de galería con dos imágenes editoriales originales y una narrativa de escucha, autonomía y confianza. Una galería horizontal accesible presenta BBVA, Movelia y Coca-Cola; las cinco colaboraciones documentadas forman la primera selección de Archives, pendiente de la lista completa de Alexandra. Se mantiene Lead Product Designer como cargo real y el retrato exclusivamente en Profile. El criterio está en [review/head-designer-narrative.md](review/head-designer-narrative.md). La portada principal y los casos completos conservan la versión anterior mientras se revisa esta propuesta.
 
 ## Desarrollo
 
@@ -25,7 +25,7 @@ npm run build
 npm test
 ```
 
-Playwright comprueba rutas, enlaces internos, filtros, menú móvil y teclado, enlaces de selección, descarga PDF, atribuciones, ausencia de desbordamientos y tamaño mínimo de texto visible de 16 px entre 320 y 1440 px, interacción con las cubiertas y controles de movimiento. Utiliza `/usr/bin/chromium` cuando existe. En otra máquina se puede instalar Chromium con `npx playwright install chromium` o indicar una instalación existente mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
+Las nueve pruebas de Playwright comprueban rutas, enlaces internos, filtros, menú móvil y teclado, enlaces de selección, galería de proyectos y navegación por capítulos, descarga PDF, atribuciones, ausencia de desbordamientos y tamaño mínimo de texto visible de 16 px entre 320 y 1440 px, interacción con las cubiertas y controles de movimiento. Utiliza `/usr/bin/chromium` cuando existe. En otra máquina se puede instalar Chromium con `npx playwright install chromium` o indicar una instalación existente mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
 ## Contenido
 
@@ -34,6 +34,9 @@ Playwright comprueba rutas, enlaces internos, filtros, menú móvil y teclado, e
 - `src/pages/`: home, índice, casos, perfil y selecciones.
 - `src/components/ProjectArt.astro`: cubiertas conceptuales originales; no reproduce pantallas de clientes ni representa productos entregados.
 - `src/styles/visual-v2.css`: dirección de arte gráfica, composiciones de distinta escala, interacción y tratamiento responsive.
+- `src/styles/direction.css`: propuesta editorial de siete bloques en `/direction/`, con estilos acotados a esa página.
+- `src/data/collaborations.ts`: selección inicial de clientes y responsabilidades documentadas; ampliar cuando Alexandra facilite el archivo completo.
+- `public/images/shared-direction.webp` y `shared-perspective.webp`: dos imágenes editoriales originales generadas con IA, con un motivo de formas que se sostienen entre sí y su estudio compartido sobre papel. No son fotografías de Alexandra, de su equipo o de entregables de cliente. Su procedencia se recoge en Image credits, al pie de la propuesta. Suman unos 260 KB; los PNG originales quedan fuera del repositorio.
 - `public/images/editorial-art.png`: una imagen conceptual generada con IA para este portfolio, usada como cuatro escenas de estudio. No son fotografías de productos de clientes.
 - `public/images/markets-map.svg`: mapa derivado de los datos de dominio público de Natural Earth, con los seis mercados del caso BBVA destacados. Fuente: https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson.
 - `public/alexandra-mena-cv.pdf`: copia sin modificar del CV en inglés suministrado.
