@@ -75,6 +75,10 @@ test('the editorial home gallery and chapter navigation work with keyboard and m
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/direction/');
+    const heroImage = page.locator('.gallery-hero-image img');
+    await expect.poll(() => heroImage.evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    const selectedImage = await heroImage.evaluate(image => (image as HTMLImageElement).currentSrc);
+    expect(new URL(selectedImage).pathname).toContain(width === 390 ? '/dar-espacio/mobile.webp' : '/dar-espacio/hero.webp');
     const gallery = page.getByRole('region', { name: 'Selected projects gallery. Use the arrow keys to browse.' });
     const next = page.getByRole('button', { name: 'Next project' });
     const previous = page.getByRole('button', { name: 'Previous project' });

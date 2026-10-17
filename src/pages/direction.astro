@@ -1,5 +1,4 @@
 ---
-import '@fontsource/instrument-serif/400-italic.css';
 import '../styles/direction.css';
 import Layout from '../layouts/Layout.astro';
 import Arrow from '../components/Arrow.astro';
@@ -19,11 +18,20 @@ const powers = ['Product direction', 'Human behaviour', 'Visual storytelling', '
 <Layout title="Álex Mena — Product direction & design leadership" description="I set product direction and lead teams through delivery. A human perspective on product, design and the people who make it happen." homeHref={sitePath('/direction/')} workHref="#selected-work" profileHref="#about" profileLabel="About" approachHref="#approach" archiveHref="#archives" headerRole="Lead Product Designer" showFooter={false}>
   <div class="direction">
     <section class="gallery-hero home-chapter" id="direction" data-chapter="01 / Direction" aria-labelledby="direction-title">
-      <img class="gallery-hero-image" src={sitePath('/images/shared-direction.webp')} width="1672" height="941" alt="" fetchpriority="high" />
+      <picture class="gallery-hero-image">
+        <source media="(max-width: 700px), (max-width: 900px) and (orientation: portrait)" srcset={sitePath('/art-direction/dar-espacio/mobile.webp')} type="image/webp" />
+        <source media="(max-width: 700px), (max-width: 900px) and (orientation: portrait)" srcset={sitePath('/art-direction/dar-espacio/mobile.png')} type="image/png" />
+        <source srcset={sitePath('/art-direction/dar-espacio/hero.webp')} type="image/webp" />
+        <img src={sitePath('/art-direction/dar-espacio/hero.png')} width="1672" height="941" alt="" fetchpriority="high" />
+      </picture>
       <div class="hero-content editorial-shell">
         <div class="hero-topline"><span class="chapter-label">01 / Product direction</span><span>Business. People. Technology.</span></div>
-        <h1 id="direction-title">I set product direction.<br />And lead teams<br /><em>through delivery.</em></h1>
-        <div class="hero-bottom"><ul class="superpowers" aria-label="My strengths">{powers.map((power, i) => <li><span aria-hidden="true">0{i + 1}</span>{power}</li>)}</ul><a class="hero-next" href="#about">Meet the person behind the work <Arrow /></a></div>
+        <div class="hero-message">
+          <h1 id="direction-title">I set product<br />direction.</h1>
+          <p class="hero-lead">And lead teams through delivery.</p>
+          <ul class="superpowers" aria-label="My strengths">{powers.map((power, i) => <li><span aria-hidden="true">0{i + 1}</span>{power}</li>)}</ul>
+        </div>
+        <div class="hero-bottom"><a class="hero-next" href="#about">Meet Álex <Arrow /></a><span class="hero-caption">Direction. Space. Confidence.</span></div>
       </div>
     </section>
 
@@ -37,7 +45,7 @@ const powers = ['Product direction', 'Human behaviour', 'Visual storytelling', '
 
     <section class="perspective-chapter home-chapter editorial-shell" id="perspective" data-chapter="03 / Perspective" aria-labelledby="perspective-title">
       <div class="chapter-topline"><span class="chapter-label">03 / The person in the work</span><span>A shared direction starts with a conversation.</span></div>
-      <div class="perspective-composition"><div class="perspective-copy"><h2 id="perspective-title">Set the direction.<br />Bring people into it.<br /><em>Help them go further.</em></h2><p>My background combines audiovisual communication, photography, behavioural economics and product design. It shapes how I read a context, pay attention to people and give an idea a form.</p><p>I listen to the people closest to the work—their ideas, doubts and ambitions. I want the team to feel heard and have the confidence to make the work their own.</p><a class="editorial-link" href={sitePath('/profile/')}>A little more about me <Arrow diagonal /></a></div><figure class="perspective-study"><img src={sitePath('/images/shared-perspective.webp')} width="1448" height="1086" alt="Editorial study of two hands arranging paper shapes together on a sunlit table." loading="lazy" /><figcaption>Different perspectives. A shared direction.<span>Editorial study</span></figcaption></figure></div>
+      <div class="perspective-composition"><div class="perspective-copy"><h2 id="perspective-title">Set the direction.<br />Bring people into it.<br /><em>Help them go further.</em></h2><p>My background combines audiovisual communication, photography, behavioural economics and product design. It shapes how I read a context, pay attention to people and give an idea a form.</p><p>I listen to the people closest to the work—their ideas, doubts and ambitions. I want the team to feel heard and have the confidence to make the work their own.</p><a class="editorial-link" href={sitePath('/profile/')}>A little more about me <Arrow diagonal /></a></div><figure class="perspective-study"><img src={sitePath('/art-direction/dar-espacio/process.webp')} width="1448" height="1086" alt="Editorial study of two hands shaping a green ceramic arch in a bright workshop." loading="lazy" /><figcaption>Different perspectives. A shared direction.<span>Editorial study</span></figcaption></figure></div>
     </section>
 
     <section class="work-chapter home-chapter" id="selected-work" data-chapter="04 / Selected work" aria-labelledby="selected-work-title">
@@ -58,7 +66,7 @@ const powers = ['Product direction', 'Human behaviour', 'Visual storytelling', '
     </section>
 
     <section class="approach-chapter home-chapter" id="approach" data-chapter="05 / How I lead" aria-labelledby="approach-title">
-      <div class="approach-image"><img src={sitePath('/images/shared-direction.webp')} width="1672" height="941" alt="" loading="lazy" /><div class="approach-image-copy editorial-shell"><span class="chapter-label">05 / How I lead</span><h2 id="approach-title">Clear direction.<br /><em>Room to grow.</em></h2><p>I want people to feel heard, trusted and confident enough to go beyond what they thought they could do.</p></div></div>
+      <div class="approach-statement"><div class="approach-image-copy editorial-shell"><span class="chapter-label">05 / How I lead</span><h2 id="approach-title">Clear direction.<br /><em>Room to grow.</em></h2><p>I want people to feel heard, trusted and confident enough to go beyond what they thought they could do.</p></div></div>
       <div class="practice-grid editorial-shell"><div><span>01 / Listen</span><h3>Make room for every voice.</h3><p>I listen before deciding. I ask what people see, what they need and where they feel uncertain, so their perspective can shape the work.</p></div><div><span>02 / Empower</span><h3>Share the context. Give ownership.</h3><p>I make the direction and expectations clear, then give people room to make decisions and bring their own judgement to the solution.</p></div><div><span>03 / Support</span><h3>Build confidence to stretch.</h3><p>I make it safe to ask questions, challenge a direction and try something new. Honest feedback and steady support help people grow beyond their own expectations.</p></div></div>
       <div class="practice-delivery editorial-shell"><span class="chapter-label">And through the work</span><p>I stay close to prototypes, systems and delivery—helping the team resolve the detail and keeping the product’s logic intact through implementation.</p></div>
     </section>
