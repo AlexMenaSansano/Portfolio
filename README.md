@@ -4,6 +4,8 @@ Web en inglés para mostrar criterio de producto, liderazgo, IA aplicada y dise�
 
 La portada concreta el alcance del trabajo: «I lead design for banking platforms, AI tools and connected products.» El texto de apoyo es un párrafo continuo que conecta negocio, estrategia de producto, comportamiento humano y tecnología. Ningún texto visible debe tener menos de 16 px, incluidos menú, metadatos, etiquetas y pies de página. Su ancho y tipografía se adaptan al viewport completo; se han comprobado tamaños de 320 a 3840 px, incluidas pantallas de poca altura. Las cifras de geografías y stakeholders presentan experiencia transversal; los casos conservan su atribución y alcance originales.
 
+La propuesta de narrativa para posiciones de dirección de diseño está en https://alexmenasansano.github.io/Portfolio/direction/. Ordena el recorrido alrededor de dirección internacional (BBVA), liderazgo entre marca y producto (Movelia) y definición de productos con IA (Coca-Cola); CaixaBank y Zip Water amplían el alcance. Usa diagramas editoriales del trabajo documentado, sin pantallas de cliente, y mantiene el cargo real de Lead Product Designer. Su criterio y estado de revisión están en [review/head-designer-narrative.md](review/head-designer-narrative.md). La comparación con la nueva referencia de Léo Parpeix queda pendiente de acceso de red. La portada principal y los casos completos conservan la versión anterior mientras se revisa esta propuesta.
+
 ## Desarrollo
 
 Node.js 24.19.0 es la versión comprobada; Astro requiere Node 22.12 o superior.

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const routes = ['/', '/profile/', '/work/', '/work/bbva-business-banking/',
+const routes = ['/', '/direction/', '/profile/', '/work/', '/work/bbva-business-banking/',
   '/work/coca-cola-ai-workspace/', '/work/caixabank-manager-tool/',
   '/work/movelia-brand-and-booking/', '/work/zip-water-interface/',
   '/focus/product-leadership/', '/focus/product-and-ai/', '/focus/staff-and-principal/'];
@@ -90,7 +90,7 @@ test('cases retain attribution, project status and evidence boundaries', async (
 test('pages remain readable at narrow and wide widths', async ({ page }) => {
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['/', '/work/', '/profile/', '/work/bbva-business-banking/', '/focus/product-and-ai/']) {
+    for (const route of ['/', '/direction/', '/work/', '/profile/', '/work/bbva-business-banking/', '/focus/product-and-ai/']) {
       await page.goto(route);
       await page.evaluate(() => document.fonts.ready);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), `${route} at ${width}px`).toBe(true);

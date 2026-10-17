@@ -13,6 +13,8 @@ const {
   title = 'Álex Mena — Lead Product Designer',
   description = 'Product direction, human behaviour and technology. Selected work by Alexandra Mena Sansano across global banking, applied AI and physical–digital experiences.',
   active = '',
+  homeHref = sitePath('/'),
+  approachHref = sitePath('/#approach'),
 } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 ---
@@ -36,23 +38,23 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : un
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="header-inner container">
-        <a href={sitePath("/")} class="wordmark" aria-label="Álex Mena, home"><span>Álex Mena</span></a>
+        <a href={homeHref} class="wordmark" aria-label="Álex Mena, home"><span>Álex Mena</span></a>
         <nav class="desktop-nav" aria-label="Main navigation">
           <a class:list={{ current: active === 'work' }} href={sitePath("/work/")} aria-current={active === 'work' ? 'page' : undefined}>Work</a>
           <a class:list={{ current: active === 'profile' }} href={sitePath("/profile/")} aria-current={active === 'profile' ? 'page' : undefined}>Profile</a>
-          <a href={sitePath("/#approach")}>Approach</a>
+          <a href={approachHref}>Approach</a>
           <a href="#contact">Contact</a>
         </nav>
         <a class="header-cv text-link" href={sitePath(person.cv)} download>CV <Arrow diagonal /></a>
         <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu"><span>Menu</span><span class="menu-symbol" aria-hidden="true">+</span></button>
       </div>
       <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
-        <a href={sitePath("/work/")}>Work</a><a href={sitePath("/profile/")}>Profile</a><a href={sitePath("/#approach")}>Approach</a><a href="#contact">Contact</a><a href={sitePath(person.cv)} download>Download CV</a>
+        <a href={sitePath("/work/")}>Work</a><a href={sitePath("/profile/")}>Profile</a><a href={approachHref}>Approach</a><a href="#contact">Contact</a><a href={sitePath(person.cv)} download>Download CV</a>
       </nav>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer">
-      <div class="container footer-main"><a class="wordmark" href={sitePath("/")}>álex mena<span class="brand-dot"></span></a><p>Product direction. Human perspective.</p><div class="footer-links"><a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow diagonal /></a><a href={sitePath(person.cv)} download>Download CV <Arrow diagonal /></a></div></div>
+      <div class="container footer-main"><a class="wordmark" href={homeHref}>álex mena<span class="brand-dot"></span></a><p>Product direction. Human perspective.</p><div class="footer-links"><a href={person.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow diagonal /></a><a href={sitePath(person.cv)} download>Download CV <Arrow diagonal /></a></div></div>
       <div class="container footer-bottom"><span>© {new Date().getUTCFullYear()} Alexandra Mena Sansano</span><span>Based in Madrid. Working across contexts.</span><a href="#main" class="back-top">Back to top ↑</a></div>
     </footer>
     <script>
